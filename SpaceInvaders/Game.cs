@@ -8,6 +8,11 @@ using System.Windows.Forms;
 
 namespace SpaceInvaders
 {
+    enum GameState
+    {
+        Play,
+        Pause
+    }
     /// <summary>
     /// This class represents the entire game, it implements the singleton pattern
     /// </summary>
@@ -43,6 +48,12 @@ namespace SpaceInvaders
         public Size gameSize;
 
         /// <summary>
+        /// Game State(pause, en jeu, etc..)
+        /// </summary>
+
+        public GameState state = GameState.Play;
+
+        /// <summary>
         /// State of the keyboard
         /// </summary>
         public HashSet<Keys> keyPressed = new HashSet<Keys>();
@@ -64,7 +75,7 @@ namespace SpaceInvaders
         /// <summary>
         /// A shared simple font
         /// </summary>
-        private static Font defaultFont = new Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
+        private static Font defaultFont = new Font("Comic Sans MS", 24, FontStyle.Bold, GraphicsUnit.Pixel);
         #endregion
 
 
@@ -82,6 +93,7 @@ namespace SpaceInvaders
             return game;
         }
 
+        public SpaceShip playerShip;
         /// <summary>
         /// Private constructor
         /// </summary>
@@ -89,6 +101,16 @@ namespace SpaceInvaders
         private Game(Size gameSize)
         {
             this.gameSize = gameSize;
+
+            playerShip = new SpaceShip(new Vector2(gameSize.Width / 2, gameSize.Height - 150), SpaceInvaders.Properties.Resources.ship3, 3); // Instancie le vaisseau du joueur
+            AddNewGameObject(playerShip); //Ajoute le vaisseau du joueur dans la liste des Game Objects
+
+            List<Bunker> bunkers = new List<Bunker>();
+            for (int i = 0; i < 3; i++)
+            {
+                bunkers.Add(new Bunker(new Vector2(gameSize.Width/3*i+80, gameSize.Height - 200)));
+                AddNewGameObject(bunkers[i]);
+            }
         }
 
         #endregion
@@ -105,16 +127,33 @@ namespace SpaceInvaders
             keyPressed.Remove(key);
         }
 
+        private Size m_SubHeaderTextFieldSize = new Size(300, 100); //Taille du texte
 
         /// <summary>
         /// Draw the whole game
         /// </summary>
         /// <param name="g">Graphics to draw in</param>
-        public void Draw(Graphics g)
+        public void Draw(Graphics graphics)
         {
             foreach (GameObject gameObject in gameObjects)
-                gameObject.Draw(this, g);       
-        }
+                gameObject.Draw(this, graphics);
+
+            //Dessine l'état pausé du jeu(GameState.Pause) au canvas
+            if (state == GameState.Pause)
+            {
+                graphics.DrawString(
+                    state.ToString(),
+                    defaultFont,
+                    blackBrush,
+                    new RectangleF(gameSize.Width/2 - 50, gameSize.Height/2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
+            }
+
+            graphics.DrawString(
+                    "Vies : " + playerShip.NbLives,
+                    defaultFont,
+                    blackBrush,
+                    new RectangleF(50, gameSize.Height - 100, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
+    }
 
         /// <summary>
         /// Update game
@@ -126,17 +165,6 @@ namespace SpaceInvaders
             pendingNewGameObjects.Clear();
 
 
-            // if space is pressed
-            if (keyPressed.Contains(Keys.Space))
-            {
-                // create new BalleQuiTombe
-                GameObject newObject = new BalleQuiTombe(gameSize.Width / 2, 0);
-                // add it to the game
-                AddNewGameObject(newObject);
-                // release key space (no autofire)
-                ReleaseKey(Keys.Space);
-            }
-
             // update each game object
             foreach (GameObject gameObject in gameObjects)
             {
@@ -145,6 +173,31 @@ namespace SpaceInvaders
 
             // remove dead objects
             gameObjects.RemoveWhere(gameObject => !gameObject.IsAlive());
+        
+            // mettre en pause / play
+            if (keyPressed.Contains(Keys.P) && state == GameState.Play)
+            {
+                state = GameState.Pause;
+            }
+            else if (keyPressed.Contains(Keys.P) && state == GameState.Pause)
+            {
+                state = GameState.Play;
+            }
+
+            ReleaseKey(Keys.P);
+
+        }
+
+        public bool IsRectColliding(SimpleObject r1, SimpleObject r2)
+        {
+            if (r1.Position.X < r2.Position.X + r2.Image.Width &&
+                r1.Position.X + r1.Image.Width > r2.Position.X &&
+                r1.Position.Y < r2.Position.Y + r2.Image.Height &&
+                r1.Position.Y + r1.Image.Height > r2.Position.Y)
+            {
+                return true;
+            }
+            return false;
         }
         #endregion
     }

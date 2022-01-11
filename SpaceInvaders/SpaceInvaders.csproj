@@ -56,7 +56,6 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BalleQuiTombe.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +79,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Vector2.cs" />
+    <Compile Include="SpaceShip.cs" />
+    <Compile Include="Missile.cs" />
+    <Compile Include="SimpleObject.cs" />
+    <Compile Include="Bunker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shoot2.png" />
