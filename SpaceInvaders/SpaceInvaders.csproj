@@ -84,6 +84,8 @@
     <Compile Include="Missile.cs" />
     <Compile Include="SimpleObject.cs" />
     <Compile Include="Bunker.cs" />
+    <Compile Include="PlayerSpaceship.cs" />
+    <Compile Include="EnemyBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shoot2.png" />

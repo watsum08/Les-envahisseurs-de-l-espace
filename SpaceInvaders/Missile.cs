@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
+
 namespace SpaceInvaders
 {
     class Missile : SimpleObject
@@ -31,14 +33,18 @@ namespace SpaceInvaders
             }
         }
 
-        public override void Collision(Missile m)
-        {
-
-        }
-
         public void DecrementLives(int n)
         {
             _nbLives -= n;
+        }
+
+        protected override void OnCollision(Missile m, int numberOfPixelsInCollision, List<Vector2> collidingPixelsPoints)
+        {
+            if (m != this)
+            {
+                _nbLives = 0;
+                m.DecrementLives(m.NbLives);
+            }
         }
     }
 }

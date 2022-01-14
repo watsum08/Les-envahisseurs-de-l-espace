@@ -93,7 +93,8 @@ namespace SpaceInvaders
             return game;
         }
 
-        public SpaceShip playerShip;
+        public PlayerSpaceship playerShip;
+        private EnemyBlock _enemies;
         /// <summary>
         /// Private constructor
         /// </summary>
@@ -102,8 +103,14 @@ namespace SpaceInvaders
         {
             this.gameSize = gameSize;
 
-            playerShip = new SpaceShip(new Vector2(gameSize.Width / 2, gameSize.Height - 150), SpaceInvaders.Properties.Resources.ship3, 3); // Instancie le vaisseau du joueur
+            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2, gameSize.Height - 150), SpaceInvaders.Properties.Resources.ship3, 3); // Instancie le vaisseau du joueur
             AddNewGameObject(playerShip); //Ajoute le vaisseau du joueur dans la liste des Game Objects
+
+            _enemies = new EnemyBlock(new Vector2(200, 50), 500, -1);
+            _enemies.AddLine(5, 3, SpaceInvaders.Properties.Resources.ship7);
+            _enemies.AddLine(3, 2, SpaceInvaders.Properties.Resources.ship5);
+            _enemies.AddLine(10, 1, SpaceInvaders.Properties.Resources.ship6);
+            AddNewGameObject(_enemies);
 
             List<Bunker> bunkers = new List<Bunker>();
             for (int i = 0; i < 3; i++)

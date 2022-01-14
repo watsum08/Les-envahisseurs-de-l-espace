@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace SpaceInvaders
 {
@@ -41,7 +42,44 @@ namespace SpaceInvaders
 
         public override void Collision(Missile m)
         {
-
+            if (m != null && m.IsAlive())
+            {
+                if (IsRectColliding(this, m))
+                {
+                    List<Vector2> points = new List<Vector2>();
+                    int nbPixelsColliding = 0;
+                    for (double x = 0; x < _image.Width; x++)
+                    {
+                        for (double y = 0; y < _image.Height; y++)
+                        {
+                            if (m.Position.X < _position.X + x &&
+                                m.Position.X + m.Image.Width > _position.X + x &&
+                                m.Position.Y < _position.Y + y &&
+                                m.Position.Y + m.Image.Height > _position.Y + y &&
+                                _image.GetPixel(Convert.ToInt32(x), Convert.ToInt32(y)).A == 255)
+                            {
+                                nbPixelsColliding++;
+                                points.Add(new Vector2(x, y));
+                            }
+                        }
+                    }
+                    OnCollision(m, nbPixelsColliding, points);
+                }
+            }
         }
+
+        private bool IsRectColliding(SimpleObject r1, SimpleObject r2)
+        {
+            if (r1.Position.X < r2.Position.X + r2.Image.Width &&
+                r1.Position.X + r1.Image.Width > r2.Position.X &&
+                r1.Position.Y < r2.Position.Y + r2.Image.Height &&
+                r1.Position.Y + r1.Image.Height > r2.Position.Y)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        protected abstract void OnCollision(Missile m, int numberOfPixelsInCollision, List<Vector2> collidingPixelsPoints);
     }
 }
