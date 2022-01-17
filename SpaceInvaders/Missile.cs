@@ -6,9 +6,9 @@ namespace SpaceInvaders
 {
     class Missile : SimpleObject
     {
-        private double _vitesse = 200;
+        private double _vitesse = 300;
 
-        public Missile(Vector2 spawnPos, Bitmap img, int nbLives) : base(spawnPos, img, nbLives)
+        public Missile(Vector2 spawnPos, Bitmap img, int nbLives, Side s) : base(spawnPos, img, nbLives, s)
         {
 
         }
@@ -18,10 +18,17 @@ namespace SpaceInvaders
             // Si le jeu est en GameState.Play il exécute
             if (gameInstance.state == GameState.Play)
             {
-                _position.Y -= _vitesse * deltaT; // missile va vers le haut
+                if (_side == Side.Ally)
+                {
+                    _position.Y -= _vitesse * deltaT; // missile va vers le haut car c'est le joueur
+                }
+                else
+                {
+                    _position.Y += _vitesse * deltaT; // missile va vers le bas car c'est l'ennemi
+                }
 
                 // Enlève toutes les vies(détruit) missile si il sort du cadre Y
-                if (_position.Y + _image.Height < 0)
+                if (_position.Y + _image.Height < 0 || _position.Y > gameInstance.gameSize.Height)
                 {
                     _nbLives = 0;
                 }

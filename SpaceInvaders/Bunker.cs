@@ -7,7 +7,7 @@ namespace SpaceInvaders
 {
     class Bunker : SimpleObject
     {
-        public Bunker(Vector2 spawnPos) : base(spawnPos, SpaceInvaders.Properties.Resources.bunker, 1)
+        public Bunker(Vector2 spawnPos, Side s) : base(spawnPos, SpaceInvaders.Properties.Resources.bunker, 1, s)
         {
 
         }

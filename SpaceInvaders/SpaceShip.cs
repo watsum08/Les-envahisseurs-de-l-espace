@@ -9,7 +9,7 @@ namespace SpaceInvaders
     {
         private Missile _missile;
 
-        private double _speedPixelPerSecond = 30;
+        private double _speedPixelPerSecond = 50;
 
         public double SpeedPixelPerSecond
         {
@@ -17,7 +17,7 @@ namespace SpaceInvaders
             set { _speedPixelPerSecond = value; }
         }
 
-        public SpaceShip(Vector2 spawnPos, Bitmap img, int nbLives) : base(spawnPos, img, nbLives)
+        public SpaceShip(Vector2 spawnPos, Bitmap img, int nbLives, Side s) : base(spawnPos, img, nbLives, s)
         {
 
         }
@@ -37,14 +37,23 @@ namespace SpaceInvaders
             {
                 int missileLives = 10;
                 Bitmap missileImg = SpaceInvaders.Properties.Resources.shoot1;
-                _missile = new Missile(new Vector2(_position.X + _image.Width / 2 - 1, _position.Y - missileImg.Height), missileImg, missileLives);
+                _missile = new Missile(new Vector2(_position.X + _image.Width / 2 - 1, _position.Y - missileImg.Height), missileImg, missileLives, _side);
                 gameIns.AddNewGameObject(_missile);
             }
         }
 
         protected override void OnCollision(Missile m, int numberOfPixelsInCollision, List<Vector2> collidingPixelsPoints)
         {
-            _nbLives = 0;
+            if (m.NbLives <= _nbLives)
+            {
+                _nbLives -= m.NbLives;
+                m.DecrementLives(m.NbLives);
+            }
+            else
+            {
+                m.DecrementLives(_nbLives);
+                _nbLives = 0;
+            }
         }
     }
 }

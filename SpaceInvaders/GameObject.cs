@@ -11,9 +11,18 @@ namespace SpaceInvaders
     /// </summary>
     abstract class GameObject
     {
-       
-        public GameObject()
+        public enum Side
         {
+            Ally,
+            Enemy,
+            Neutral
+        }
+
+        protected Side _side;
+
+        protected GameObject()
+        {
+
         }
 
         /// <summary>

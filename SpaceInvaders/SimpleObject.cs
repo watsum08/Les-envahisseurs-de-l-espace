@@ -23,11 +23,12 @@ namespace SpaceInvaders
             get { return _nbLives; }
         }
 
-        protected SimpleObject(Vector2 spawnPos, Bitmap img, int nbLives)
+        protected SimpleObject(Vector2 spawnPos, Bitmap img, int nbLives, Side s)
         {
             _position = new Vector2(spawnPos.X, spawnPos.Y);
             _nbLives = nbLives;
             _image = img;
+            _side = s;
         }
 
         public override void Draw(Game gameInstance, Graphics graphics)
@@ -42,7 +43,7 @@ namespace SpaceInvaders
 
         public override void Collision(Missile m)
         {
-            if (m != null && m.IsAlive())
+            if (m != null && m.IsAlive() && m._side != _side)
             {
                 if (IsRectColliding(this, m))
                 {

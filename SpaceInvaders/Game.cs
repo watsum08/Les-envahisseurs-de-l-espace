@@ -11,7 +11,9 @@ namespace SpaceInvaders
     enum GameState
     {
         Play,
-        Pause
+        Pause,
+        Win,
+        Lost
     }
     /// <summary>
     /// This class represents the entire game, it implements the singleton pattern
@@ -70,12 +72,14 @@ namespace SpaceInvaders
         /// <summary>
         /// A shared black brush
         /// </summary>
-        private static Brush blackBrush = new SolidBrush(Color.Black);
+        public static Brush blackBrush = new SolidBrush(Color.Black);
+
+        public static Size m_SubHeaderTextFieldSize = new Size(300, 100); //Taille du texte
 
         /// <summary>
         /// A shared simple font
         /// </summary>
-        private static Font defaultFont = new Font("Comic Sans MS", 24, FontStyle.Bold, GraphicsUnit.Pixel);
+        public static Font defaultFont = new Font("Comic Sans MS", 24, FontStyle.Bold, GraphicsUnit.Pixel);
         #endregion
 
 
@@ -103,19 +107,37 @@ namespace SpaceInvaders
         {
             this.gameSize = gameSize;
 
-            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2, gameSize.Height - 150), SpaceInvaders.Properties.Resources.ship3, 3); // Instancie le vaisseau du joueur
+            GameStart();
+        }
+
+        private void GameStart()
+        {
+            gameObjects.Clear(); //supprime tous les objets de jeu
+
+            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2, gameSize.Height - 150), SpaceInvaders.Properties.Resources.ship3, 100, GameObject.Side.Ally); // Instancie le vaisseau du joueur
             AddNewGameObject(playerShip); //Ajoute le vaisseau du joueur dans la liste des Game Objects
 
-            _enemies = new EnemyBlock(new Vector2(200, 50), 500, -1);
-            _enemies.AddLine(5, 3, SpaceInvaders.Properties.Resources.ship7);
-            _enemies.AddLine(3, 2, SpaceInvaders.Properties.Resources.ship5);
-            _enemies.AddLine(10, 1, SpaceInvaders.Properties.Resources.ship6);
+            Random r = new Random();
+            double randDirection = r.NextDouble();
+            Vector2 enemyBlockSpawnPos = new Vector2((gameSize.Width - 400) / 2, 50);
+            int enemyBlockWidth = 400;
+            if (randDirection > 0.5)
+            {
+                _enemies = new EnemyBlock(enemyBlockSpawnPos, enemyBlockWidth, 1);
+            }
+            else
+            {
+                _enemies = new EnemyBlock(enemyBlockSpawnPos, enemyBlockWidth, -1);
+            }
+            _enemies.AddLine(5, 12, SpaceInvaders.Properties.Resources.ship7);
+            _enemies.AddLine(3, 10, SpaceInvaders.Properties.Resources.ship5);
+            _enemies.AddLine(10, 5, SpaceInvaders.Properties.Resources.ship6);
             AddNewGameObject(_enemies);
 
             List<Bunker> bunkers = new List<Bunker>();
             for (int i = 0; i < 3; i++)
             {
-                bunkers.Add(new Bunker(new Vector2(gameSize.Width/3*i+80, gameSize.Height - 200)));
+                bunkers.Add(new Bunker(new Vector2(gameSize.Width / 3 * i + 80, gameSize.Height - 200), GameObject.Side.Neutral));
                 AddNewGameObject(bunkers[i]);
             }
         }
@@ -133,8 +155,6 @@ namespace SpaceInvaders
         {
             keyPressed.Remove(key);
         }
-
-        private Size m_SubHeaderTextFieldSize = new Size(300, 100); //Taille du texte
 
         /// <summary>
         /// Draw the whole game
@@ -155,12 +175,24 @@ namespace SpaceInvaders
                     new RectangleF(gameSize.Width/2 - 50, gameSize.Height/2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
             }
 
-            graphics.DrawString(
-                    "Vies : " + playerShip.NbLives,
+            if (state == GameState.Win)
+            {
+                graphics.DrawString(
+                    "you win",
                     defaultFont,
                     blackBrush,
-                    new RectangleF(50, gameSize.Height - 100, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
-    }
+                    new RectangleF(gameSize.Width / 2 - 50, gameSize.Height / 2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
+            }
+
+            if (state == GameState.Lost)
+            {
+                graphics.DrawString(
+                    "you lose",
+                    defaultFont,
+                    blackBrush,
+                    new RectangleF(gameSize.Width / 2 - 50, gameSize.Height / 2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
+            }
+        }
 
         /// <summary>
         /// Update game
@@ -190,8 +222,26 @@ namespace SpaceInvaders
             {
                 state = GameState.Play;
             }
-
             ReleaseKey(Keys.P);
+
+            if (!playerShip.IsAlive())
+            {
+                state = GameState.Lost;
+            } 
+            else if (!_enemies.IsAlive())
+            {
+                state = GameState.Win;
+            }
+
+            if (state == GameState.Win || state == GameState.Lost)
+            {
+                if (keyPressed.Contains(Keys.Space))
+                {
+                    state = GameState.Play;
+                    GameStart();
+                }
+            }
+            ReleaseKey(Keys.Space);
 
         }
 
