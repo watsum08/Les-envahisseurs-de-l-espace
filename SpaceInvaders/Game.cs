@@ -135,10 +135,10 @@ namespace SpaceInvaders
             AddNewGameObject(_enemies);
 
             List<Bunker> bunkers = new List<Bunker>();
-            for (int i = 0; i < 3; i++)
+            for (int i = 1; i < 4; i++)
             {
-                bunkers.Add(new Bunker(new Vector2(gameSize.Width / 3 * i + 80, gameSize.Height - 200), GameObject.Side.Neutral));
-                AddNewGameObject(bunkers[i]);
+                bunkers.Add(new Bunker(new Vector2(gameSize.Width * (0.25 * i) - SpaceInvaders.Properties.Resources.bunker.Width/2, gameSize.Height - 200), GameObject.Side.Neutral));
+                AddNewGameObject(bunkers[i-1]);
             }
         }
 

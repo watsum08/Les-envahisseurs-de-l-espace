@@ -109,7 +109,7 @@ namespace SpaceInvaders
             {
                 spaceship.Draw(gameInstance, graphics);
             }
-
+            /*// Permet de dessiner le rectangle entourant l'enemyblock(tous les ennemis)
             Pen pen = new Pen(Color.Red, 2);
             int x = (int)_position.X;
             int y = (int)_position.Y;
@@ -117,7 +117,7 @@ namespace SpaceInvaders
             graphics.DrawLine(pen, x, y, x + _size.Width, y);
             graphics.DrawLine(pen, x, y, x, _size.Height + y);
             graphics.DrawLine(pen, x + _size.Width, y, x + _size.Width, _size.Height + y);
-            graphics.DrawLine(pen, x, y + _size.Height, x + _size.Width, y + _size.Height);
+            graphics.DrawLine(pen, x, y + _size.Height, x + _size.Width, y + _size.Height);*/
         }
 
         public override bool IsAlive()
