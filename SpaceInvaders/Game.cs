@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using System.Diagnostics;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Threading;
 
 namespace SpaceInvaders
 {
@@ -72,15 +72,18 @@ namespace SpaceInvaders
         /// <summary>
         /// A shared black brush
         /// </summary>
-        public static Brush blackBrush = new SolidBrush(Color.Black);
+        public static Brush blackBrush = new SolidBrush(Color.FromArgb(250, 240, 240, 240));
 
         public static Size m_SubHeaderTextFieldSize = new Size(300, 100); //Taille du texte
 
         /// <summary>
         /// A shared simple font
         /// </summary>
-        public static Font defaultFont = new Font("Comic Sans MS", 24, FontStyle.Bold, GraphicsUnit.Pixel);
+        public static Font defaultFont = new Font("Ubuntu Mono", 16);
         #endregion
+
+        private Font font24px = new Font("Ubuntu Mono", 24);
+        private Font font32px = new Font("Ubuntu Mono", 32);
 
 
         #region constructors
@@ -99,6 +102,9 @@ namespace SpaceInvaders
 
         public PlayerSpaceship playerShip;
         private EnemyBlock _enemies;
+        private Stopwatch _stopwatch;
+        private int timer;
+        private bool _gameOver;
         /// <summary>
         /// Private constructor
         /// </summary>
@@ -112,9 +118,11 @@ namespace SpaceInvaders
 
         private void GameStart()
         {
-            gameObjects.Clear(); //supprime tous les objets de jeu
+            timer = 0;
+            _gameOver = false;
+            gameObjects.Clear(); //supprime tous les objets de jeu pour quand on recommence le jeu
 
-            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2, gameSize.Height - 150), SpaceInvaders.Properties.Resources.ship3, 100, GameObject.Side.Ally); // Instancie le vaisseau du joueur
+            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2 - SpaceInvaders.Properties.Resources.ship3.Width / 2, gameSize.Height - 120), SpaceInvaders.Properties.Resources.ship3, 60, GameObject.Side.Ally); // Instancie le vaisseau du joueur
             AddNewGameObject(playerShip); //Ajoute le vaisseau du joueur dans la liste des Game Objects
 
             Random r = new Random();
@@ -137,9 +145,12 @@ namespace SpaceInvaders
             List<Bunker> bunkers = new List<Bunker>();
             for (int i = 1; i < 4; i++)
             {
-                bunkers.Add(new Bunker(new Vector2(gameSize.Width * (0.25 * i) - SpaceInvaders.Properties.Resources.bunker.Width/2, gameSize.Height - 200), GameObject.Side.Neutral));
+                bunkers.Add(new Bunker(new Vector2(gameSize.Width / 4 * i - SpaceInvaders.Properties.Resources.bunker.Width/2, gameSize.Height - 240), GameObject.Side.Neutral));
                 AddNewGameObject(bunkers[i-1]);
             }
+
+            _stopwatch = new Stopwatch();
+            _stopwatch.Start();
         }
 
         #endregion
@@ -162,36 +173,13 @@ namespace SpaceInvaders
         /// <param name="g">Graphics to draw in</param>
         public void Draw(Graphics graphics)
         {
+            // Dessine l'arrière plan
+            graphics.DrawImage(SpaceInvaders.Properties.Resources.background, 0, 0, 706, 652);
+
             foreach (GameObject gameObject in gameObjects)
                 gameObject.Draw(this, graphics);
 
-            //Dessine l'état pausé du jeu(GameState.Pause) au canvas
-            if (state == GameState.Pause)
-            {
-                graphics.DrawString(
-                    state.ToString(),
-                    defaultFont,
-                    blackBrush,
-                    new RectangleF(gameSize.Width/2 - 50, gameSize.Height/2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
-            }
-
-            if (state == GameState.Win)
-            {
-                graphics.DrawString(
-                    "you win",
-                    defaultFont,
-                    blackBrush,
-                    new RectangleF(gameSize.Width / 2 - 50, gameSize.Height / 2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
-            }
-
-            if (state == GameState.Lost)
-            {
-                graphics.DrawString(
-                    "you lose",
-                    defaultFont,
-                    blackBrush,
-                    new RectangleF(gameSize.Width / 2 - 50, gameSize.Height / 2 - m_SubHeaderTextFieldSize.Height, m_SubHeaderTextFieldSize.Width, m_SubHeaderTextFieldSize.Height));
-            }
+            CheckGameState(graphics);
         }
 
         /// <summary>
@@ -224,6 +212,12 @@ namespace SpaceInvaders
             }
             ReleaseKey(Keys.P);
 
+            if (keyPressed.Contains(Keys.K) && state == GameState.Play)
+            {
+                _enemies.KillAllShips();
+            }
+            ReleaseKey(Keys.K);
+
             if (!playerShip.IsAlive())
             {
                 state = GameState.Lost;
@@ -235,7 +229,13 @@ namespace SpaceInvaders
 
             if (state == GameState.Win || state == GameState.Lost)
             {
-                if (keyPressed.Contains(Keys.Space))
+                if (_stopwatch.IsRunning)
+                {
+                    _stopwatch.Stop();
+                }
+                timer++;
+
+                if (keyPressed.Contains(Keys.Space) && _gameOver)
                 {
                     state = GameState.Play;
                     GameStart();
@@ -255,6 +255,145 @@ namespace SpaceInvaders
                 return true;
             }
             return false;
+        }
+
+        private void CheckGameState(Graphics graphics)
+        {
+            string text;
+            //Dessine l'état pausé du jeu(GameState.Pause, ...) au canvas
+            if (state == GameState.Pause)
+            {
+                text = state.ToString().ToUpper();
+                graphics.DrawString(
+                    text,
+                    font32px,
+                    blackBrush,
+                    new RectangleF(gameSize.Width / 2 - text.Length* 21 / 2, gameSize.Height / 2 - 50, text.Length * 21, m_SubHeaderTextFieldSize.Height));
+            }
+
+            if (state == GameState.Win)
+            {
+                text = "VICTOIRE!";
+                graphics.DrawString(
+                    text,
+                    font32px,
+                    blackBrush,
+                    new RectangleF(gameSize.Width / 2 - text.Length * 21 / 2, gameSize.Height / 2 - 150, text.Length * 21, m_SubHeaderTextFieldSize.Height));
+                if (timer > 120)
+                {
+                    TimeSpan ts = _stopwatch.Elapsed;
+                    string elapsedTime = ts.ToString(@"m\ \m\i\n\ s\ \s\e\c");
+                    text = "Jeu terminé en: " + elapsedTime;
+                    graphics.DrawString(
+                        text,
+                        font24px,
+                        blackBrush,
+                        new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 - 80, text.Length * 16, m_SubHeaderTextFieldSize.Height));
+
+                    if (ts.TotalSeconds < 40 && playerShip.NbLives >= 48)
+                    {
+                        DrawStars(graphics, 3);
+                    }
+                    else if (ts.TotalSeconds < 50 && playerShip.NbLives >= 36)
+                    {
+                        DrawStars(graphics, 2);
+                    }
+                    else if (ts.TotalSeconds < 60 && playerShip.NbLives >= 24)
+                    {
+                        DrawStars(graphics, 1);
+                    }
+                    else
+                    {
+                        DrawStars(graphics, 0);
+                    }
+                }
+
+                if (timer > 300)
+                {
+                    text = "Appuyez sur ESPACE pour rejouer.";
+                    graphics.DrawString(
+                        text,
+                        font24px,
+                        blackBrush,
+                        new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 + 50, text.Length * 16, m_SubHeaderTextFieldSize.Height));
+                    _gameOver = true;
+                }
+            }
+
+            if (state == GameState.Lost)
+            {
+                text = "DÉFAITE..";
+                graphics.DrawString(
+                    text,
+                    font32px,
+                    blackBrush,
+                    new RectangleF(gameSize.Width / 2 - text.Length * 21 / 2, gameSize.Height / 2 - 150, text.Length * 21, m_SubHeaderTextFieldSize.Height));
+
+                if (timer > 240)
+                {
+                    text = "Appuyez sur ESPACE pour rejouer.";
+                    graphics.DrawString(
+                        text,
+                        font24px,
+                        blackBrush,
+                        new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 - 60, text.Length * 16, m_SubHeaderTextFieldSize.Height));
+                    _gameOver = true;
+                }
+            }
+        }
+
+        private void DrawStars(Graphics graphics, int nbStars)
+        {
+            List<PointF[]> stars = new List<PointF[]>();
+            for (int i = 0; i < 3; i++)
+            {
+                stars.Add(Calculate5StarPoints(new PointF(280f + 70 * i, 320f), 25f, 12.5f));
+            }
+
+            SolidBrush FillBrush;
+           
+            for (int i = 0; i < stars.Count; i++)
+            {
+                if (i < nbStars)
+                {
+                    FillBrush = new SolidBrush(Color.Yellow);
+                }
+                else
+                {
+                    FillBrush = new SolidBrush(Color.LightGoldenrodYellow);
+                }
+
+                graphics.FillPolygon(FillBrush, stars[i]);
+                graphics.DrawPolygon(new Pen(Color.Black, 2), stars[i]);
+            }
+        }
+
+        private PointF[] Calculate5StarPoints(PointF Orig, float outerradius, float innerradius)
+        {
+            // Define some variables to avoid as much calculations as possible
+            // conversions to radians
+            double Ang36 = Math.PI / 5.0;   // 36Â° x PI/180
+            double Ang72 = 2.0 * Ang36;     // 72Â° x PI/180
+            // some sine and cosine values we need
+            float Sin36 = (float)Math.Sin(Ang36);
+            float Sin72 = (float)Math.Sin(Ang72);
+            float Cos36 = (float)Math.Cos(Ang36);
+            float Cos72 = (float)Math.Cos(Ang72);
+            // Fill array with 10 origin points
+            PointF[] pnts = { Orig, Orig, Orig, Orig, Orig, Orig, Orig, Orig, Orig, Orig };
+            pnts[0].Y -= outerradius;  // top off the star, or on a clock this is 12:00 or 0:00 hours
+            pnts[1].X += innerradius * Sin36; pnts[1].Y -= innerradius * Cos36; // 0:06 hours
+            pnts[2].X += outerradius * Sin72; pnts[2].Y -= outerradius * Cos72; // 0:12 hours
+            pnts[3].X += innerradius * Sin72; pnts[3].Y += innerradius * Cos72; // 0:18
+            pnts[4].X += outerradius * Sin36; pnts[4].Y += outerradius * Cos36; // 0:24 
+            // Phew! Glad I got that trig working.
+            pnts[5].Y += innerradius;
+            // I use the symmetry of the star figure here
+            pnts[6].X += pnts[6].X - pnts[4].X; pnts[6].Y = pnts[4].Y;  // mirror point
+            pnts[7].X += pnts[7].X - pnts[3].X; pnts[7].Y = pnts[3].Y;  // mirror point
+            pnts[8].X += pnts[8].X - pnts[2].X; pnts[8].Y = pnts[2].Y;  // mirror point
+            pnts[9].X += pnts[9].X - pnts[1].X; pnts[9].Y = pnts[1].Y;  // mirror point
+            return pnts;
         }
         #endregion
     }

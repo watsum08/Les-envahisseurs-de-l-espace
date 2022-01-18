@@ -40,7 +40,7 @@ namespace SpaceInvaders
             _enemyShips = new HashSet<SpaceShip>();
             _direction = direction;
             _side = Side.Enemy;
-            _randomShootProbability = 0.01;
+            _randomShootProbability = 0.04;
             _horSpeed = 50;
             _verSpeed = 4000;
         }
@@ -59,7 +59,7 @@ namespace SpaceInvaders
                     foreach (SpaceShip spaceship in _enemyShips)
                     {
                       spaceship.Position.Y += _verSpeed * deltaT;
-                      _randomShootProbability += 0.002;
+                      _randomShootProbability += 0.015;
                     }
 
                 }
@@ -72,7 +72,7 @@ namespace SpaceInvaders
                     foreach (SpaceShip spaceship in _enemyShips)
                     {
                        spaceship.Position.Y += _verSpeed * deltaT;
-                       _randomShootProbability += 0.002;
+                        _randomShootProbability += 0.015;
                     }
                 }
 
@@ -100,6 +100,8 @@ namespace SpaceInvaders
                 {
                     gameInstance.playerShip.Kill();
                 }
+
+                UpdateSize();
             }
         }
 
@@ -109,8 +111,8 @@ namespace SpaceInvaders
             {
                 spaceship.Draw(gameInstance, graphics);
             }
-            /*// Permet de dessiner le rectangle entourant l'enemyblock(tous les ennemis)
-            Pen pen = new Pen(Color.Red, 2);
+            // Permet de dessiner le rectangle entourant l'enemyblock(tous les ennemis)
+            /*Pen pen = new Pen(Color.Red, 2);
             int x = (int)_position.X;
             int y = (int)_position.Y;
 
@@ -147,12 +149,35 @@ namespace SpaceInvaders
                 SpaceShip enemyship = new SpaceShip(new Vector2(_position.X + (_baseWidth / nbShips * (ship + 1)) - (_baseWidth / nbShips) + (_baseWidth / (nbShips * 2)) - (shipImage.Width/2), _position.Y + _size.Height + _bottomShipMargin), shipImage, nbLives, Side.Enemy);
                 _enemyShips.Add(enemyship);
             }
-            UpdateSize(shipImage);
+            _size.Height += shipImage.Height + _bottomShipMargin;
         }
 
-        private void UpdateSize(Bitmap shipImg)
+        private void UpdateSize()
         {
-            _size.Height += shipImg.Height + _bottomShipMargin;
+            // permet de mettre à jour la taille du bloc par rapport aux vaisseaux ennemis restants
+            double minX = 1000;
+            double maxX = 0;
+            foreach (SpaceShip enemyShip in _enemyShips)
+            {
+                if (enemyShip.Position.X < minX)
+                {
+                    minX = enemyShip.Position.X;
+                }
+                else if (enemyShip.Position.X + enemyShip.Image.Width > maxX)
+                {
+                    maxX = enemyShip.Position.X + enemyShip.Image.Width;
+                }
+            }
+            _position.X = minX;
+            _size.Width = Convert.ToInt32(maxX - minX);
+        }
+
+        public void KillAllShips()
+        {
+            foreach (SpaceShip enemyShip in _enemyShips)
+            {
+                enemyShip.Kill();
+            }
         }
     }
 }

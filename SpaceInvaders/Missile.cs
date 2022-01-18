@@ -6,7 +6,7 @@ namespace SpaceInvaders
 {
     class Missile : SimpleObject
     {
-        private double _vitesse = 300;
+        private double _vitesse = 500;
 
         public Missile(Vector2 spawnPos, Bitmap img, int nbLives, Side s) : base(spawnPos, img, nbLives, s)
         {

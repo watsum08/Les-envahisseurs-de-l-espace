@@ -35,7 +35,7 @@ namespace SpaceInvaders
         {
             if (_missile == null || !_missile.IsAlive())
             {
-                int missileLives = 10;
+                int missileLives = 12;
                 Bitmap missileImg = SpaceInvaders.Properties.Resources.shoot1;
                 _missile = new Missile(new Vector2(_position.X + _image.Width / 2 - 1, _position.Y - missileImg.Height), missileImg, missileLives, _side);
                 gameIns.AddNewGameObject(_missile);
@@ -54,6 +54,11 @@ namespace SpaceInvaders
                 m.DecrementLives(_nbLives);
                 _nbLives = 0;
             }
+        }
+
+        public void Kill()
+        {
+            _nbLives = 0;
         }
     }
 }

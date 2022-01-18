@@ -56,17 +56,17 @@ namespace SpaceInvaders
             base.Draw(gameInstance, graphics);
 
             graphics.DrawString(
-                    "Vie : ",
+                    "VIE:",
                     Game.defaultFont,
                     Game.blackBrush,
-                    new RectangleF(30, gameInstance.gameSize.Height - 70, Game.m_SubHeaderTextFieldSize.Width, Game.m_SubHeaderTextFieldSize.Height));
+                    new RectangleF(40, gameInstance.gameSize.Height - 59, Game.m_SubHeaderTextFieldSize.Width, Game.m_SubHeaderTextFieldSize.Height));
 
             Pen pen;
-            if (_nbLives > 40)
+            if (_nbLives > _nbLives * 0.4)
             {
-                pen = new Pen(Color.Green, 16);
+                pen = new Pen(Color.LightGreen, 16);
             } 
-            else if (_nbLives <= 40 && _nbLives > 20)
+            else if (_nbLives <= _nbLives * 0.4 && _nbLives > _nbLives * 0.15)
             {
                 pen = new Pen(Color.Yellow, 16);
             }
@@ -76,7 +76,7 @@ namespace SpaceInvaders
             }
 
 
-            graphics.DrawLine(pen, 90, gameInstance.gameSize.Height - 50, 90 + _nbLives*2, gameInstance.gameSize.Height - 50);
+            graphics.DrawLine(pen, 95, gameInstance.gameSize.Height - 46, 95 + _nbLives* 3, gameInstance.gameSize.Height - 46);
 
         }
 
