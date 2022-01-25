@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace SpaceInvaders
 {
@@ -38,7 +39,8 @@ namespace SpaceInvaders
 
         public override bool IsAlive()
         {
-            if (_nbLives > 0) { return true; } else return false;
+            if (_nbLives > 0) { return true; }
+            return false;
         }
 
         public override void Collision(Missile m)
@@ -71,10 +73,10 @@ namespace SpaceInvaders
 
         private bool IsRectColliding(SimpleObject r1, SimpleObject r2)
         {
-            if (r1.Position.X < r2.Position.X + r2.Image.Width &&
-                r1.Position.X + r1.Image.Width > r2.Position.X &&
-                r1.Position.Y < r2.Position.Y + r2.Image.Height &&
-                r1.Position.Y + r1.Image.Height > r2.Position.Y)
+            Rectangle rect1 = new Rectangle((int)r1.Position.X, (int)r1.Position.Y, r1.Image.Width, r1.Image.Height);
+            Rectangle rect2 = new Rectangle((int)r2.Position.X, (int)r2.Position.Y, r2.Image.Width, r2.Image.Height);
+
+            if (rect1.IntersectsWith(rect2))
             {
                 return true;
             }

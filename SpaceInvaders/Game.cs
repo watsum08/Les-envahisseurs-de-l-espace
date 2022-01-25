@@ -122,7 +122,7 @@ namespace SpaceInvaders
             _gameOver = false;
             gameObjects.Clear(); //supprime tous les objets de jeu pour quand on recommence le jeu
 
-            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2 - SpaceInvaders.Properties.Resources.ship3.Width / 2, gameSize.Height - 120), SpaceInvaders.Properties.Resources.ship3, 60, GameObject.Side.Ally); // Instancie le vaisseau du joueur
+            playerShip = new PlayerSpaceship(new Vector2(gameSize.Width / 2 - SpaceInvaders.Properties.Resources.ship3.Width / 2, gameSize.Height - 120), SpaceInvaders.Properties.Resources.ship3, 120, GameObject.Side.Ally); // Instancie le vaisseau du joueur
             AddNewGameObject(playerShip); //Ajoute le vaisseau du joueur dans la liste des Game Objects
 
             Random r = new Random();
@@ -137,9 +137,9 @@ namespace SpaceInvaders
             {
                 _enemies = new EnemyBlock(enemyBlockSpawnPos, enemyBlockWidth, -1);
             }
-            _enemies.AddLine(5, 12, SpaceInvaders.Properties.Resources.ship7);
-            _enemies.AddLine(3, 10, SpaceInvaders.Properties.Resources.ship5);
-            _enemies.AddLine(10, 5, SpaceInvaders.Properties.Resources.ship6);
+            _enemies.AddLine(7, 24, SpaceInvaders.Properties.Resources.ship7);
+            _enemies.AddLine(5, 20, SpaceInvaders.Properties.Resources.ship5);
+            _enemies.AddLine(9, 10, SpaceInvaders.Properties.Resources.ship6);
             AddNewGameObject(_enemies);
 
             List<Bunker> bunkers = new List<Bunker>();
@@ -212,11 +212,12 @@ namespace SpaceInvaders
             }
             ReleaseKey(Keys.P);
 
+            /*//Permet de tuer tous les ennemis d'une touche (mode développeur!!)
             if (keyPressed.Contains(Keys.K) && state == GameState.Play)
             {
                 _enemies.KillAllShips();
             }
-            ReleaseKey(Keys.K);
+            ReleaseKey(Keys.K);*/
 
             if (!playerShip.IsAlive())
             {
@@ -290,15 +291,15 @@ namespace SpaceInvaders
                         blackBrush,
                         new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 - 80, text.Length * 16, m_SubHeaderTextFieldSize.Height));
 
-                    if (ts.TotalSeconds < 40 && playerShip.NbLives >= 48)
+                    if (ts.TotalSeconds < 42 && playerShip.NbLives >= 96)
                     {
                         DrawStars(graphics, 3);
                     }
-                    else if (ts.TotalSeconds < 50 && playerShip.NbLives >= 36)
+                    else if (ts.TotalSeconds < 50 && playerShip.NbLives >= 72)
                     {
                         DrawStars(graphics, 2);
                     }
-                    else if (ts.TotalSeconds < 60 && playerShip.NbLives >= 24)
+                    else if (ts.TotalSeconds < 60 && playerShip.NbLives >= 48)
                     {
                         DrawStars(graphics, 1);
                     }

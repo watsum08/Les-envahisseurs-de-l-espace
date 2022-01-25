@@ -40,7 +40,7 @@ namespace SpaceInvaders
             _enemyShips = new HashSet<SpaceShip>();
             _direction = direction;
             _side = Side.Enemy;
-            _randomShootProbability = 0.04;
+            _randomShootProbability = 0.02f;
             _horSpeed = 50;
             _verSpeed = 4000;
         }
@@ -59,7 +59,7 @@ namespace SpaceInvaders
                     foreach (SpaceShip spaceship in _enemyShips)
                     {
                       spaceship.Position.Y += _verSpeed * deltaT;
-                      _randomShootProbability += 0.015;
+                      _randomShootProbability += 0.008f;
                     }
 
                 }
@@ -72,7 +72,7 @@ namespace SpaceInvaders
                     foreach (SpaceShip spaceship in _enemyShips)
                     {
                        spaceship.Position.Y += _verSpeed * deltaT;
-                        _randomShootProbability += 0.015;
+                        _randomShootProbability += 0.008f;
                     }
                 }
 
@@ -84,7 +84,7 @@ namespace SpaceInvaders
                     Random randSeed = new Random();
                     double r = randSeed.NextDouble();
 
-                    if (spaceship.IsAlive() == false)
+                    if (!spaceship.IsAlive())
                     {
                         _enemyShips.Remove(spaceship);
                     }
@@ -94,7 +94,7 @@ namespace SpaceInvaders
                     }
                 }
                 _position.X += _horSpeed * deltaT * _direction;
-
+                _enemyShips.TrimExcess();
 
                 if (_position.Y + _size.Height >= gameInstance.playerShip.Position.Y)
                 {
@@ -112,14 +112,14 @@ namespace SpaceInvaders
                 spaceship.Draw(gameInstance, graphics);
             }
             // Permet de dessiner le rectangle entourant l'enemyblock(tous les ennemis)
-            /*Pen pen = new Pen(Color.Red, 2);
+            Pen pen = new Pen(Color.Red, 2);
             int x = (int)_position.X;
             int y = (int)_position.Y;
 
             graphics.DrawLine(pen, x, y, x + _size.Width, y);
             graphics.DrawLine(pen, x, y, x, _size.Height + y);
             graphics.DrawLine(pen, x + _size.Width, y, x + _size.Width, _size.Height + y);
-            graphics.DrawLine(pen, x, y + _size.Height, x + _size.Width, y + _size.Height);*/
+            graphics.DrawLine(pen, x, y + _size.Height, x + _size.Width, y + _size.Height);
         }
 
         public override bool IsAlive()
@@ -154,9 +154,9 @@ namespace SpaceInvaders
 
         private void UpdateSize()
         {
-            // permet de mettre à jour la taille du bloc par rapport aux vaisseaux ennemis restants
             double minX = 1000;
             double maxX = 0;
+            // permet de mettre à jour la taille du bloc par rapport aux vaisseaux ennemis restants
             foreach (SpaceShip enemyShip in _enemyShips)
             {
                 if (enemyShip.Position.X < minX)
@@ -168,8 +168,17 @@ namespace SpaceInvaders
                     maxX = enemyShip.Position.X + enemyShip.Image.Width;
                 }
             }
-            _position.X = minX;
-            _size.Width = Convert.ToInt32(maxX - minX);
+
+            if (_enemyShips.Count() > 1)
+            {
+                _size.Width = Convert.ToInt32(maxX - minX);
+                _position.X = minX;
+            }
+            else
+            {
+                _size.Width = _enemyShips.First().Image.Width;
+                _position.X = _enemyShips.First().Position.X;
+            }
         }
 
         public void KillAllShips()

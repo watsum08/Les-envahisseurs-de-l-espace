@@ -76,13 +76,8 @@ namespace SpaceInvaders
             }
 
 
-            graphics.DrawLine(pen, 95, gameInstance.gameSize.Height - 46, 95 + _nbLives* 3, gameInstance.gameSize.Height - 46);
+            graphics.DrawLine(pen, 95, gameInstance.gameSize.Height - 46, 95 + _nbLives * 2, gameInstance.gameSize.Height - 46);
 
-        }
-
-        public void Kill()
-        {
-            _nbLives = 0;
         }
     }
 }
