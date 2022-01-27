@@ -1,0 +1,152 @@
+\hypertarget{classSpaceInvaders_1_1GameObject}{}\doxysection{Space\+Invaders.\+Game\+Object Class Reference}
+\label{classSpaceInvaders_1_1GameObject}\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+
+
+Ceci est la classe abstraite de tout objet de jeu  
+
+
+
+
+Inheritance diagram for Space\+Invaders.\+Game\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSpaceInvaders_1_1GameObject__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} \{ {\bfseries Ally}
+, {\bfseries Enemy}
+, {\bfseries Neutral}
+ \}
+\begin{DoxyCompactList}\small\item\em Ceci est l\textquotesingle{}énumération pour les camp de jeu (Allié, Ennemi, Neutre) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract void \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}{Update}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, double deltaT)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_abe9cbac0720e8d2346dab2469926c8cd}{Draw}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, Graphics graphics)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}objet de jeu (affiche à l\textquotesingle{}écran) \end{DoxyCompactList}\item 
+abstract bool \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a57417ad44e0614ac776a35cdf059e319}{Is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet de jeu est vivant. Si cela retourne faux, l\textquotesingle{}objet est automatiquement supprimé. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a0b7c0c0a2a6c1d425d2bf78619c71dfc}{Collision}} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m)
+\begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet de jeu rentre en collision avec le missile \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a5b55378ab0daf619d617e6fb6b46a1ea}{\+\_\+side}}
+\begin{DoxyCompactList}\small\item\em Camp de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ceci est la classe abstraite de tout objet de jeu 
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}\label{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}} 
+\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}!Side@{Side}}
+\index{Side@{Side}!SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+\doxysubsubsection{\texorpdfstring{Side}{Side}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Space\+Invaders.\+Game\+Object.\+Side}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Ceci est l\textquotesingle{}énumération pour les camp de jeu (Allié, Ennemi, Neutre) 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1GameObject_a0b7c0c0a2a6c1d425d2bf78619c71dfc}\label{classSpaceInvaders_1_1GameObject_a0b7c0c0a2a6c1d425d2bf78619c71dfc}} 
+\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}!Collision@{Collision}}
+\index{Collision@{Collision}!SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+\doxysubsubsection{\texorpdfstring{Collision()}{Collision()}}
+{\footnotesize\ttfamily abstract void Space\+Invaders.\+Game\+Object.\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}}}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Détermine si l\textquotesingle{}objet de jeu rentre en collision avec le missile 
+
+
+
+Implemented in \mbox{\hyperlink{classSpaceInvaders_1_1SimpleObject_a70bf184e1814438c26a365e9e5fa69cf}{Space\+Invaders.\+Simple\+Object}}, and \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}{Space\+Invaders.\+Enemy\+Block}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1GameObject_abe9cbac0720e8d2346dab2469926c8cd}\label{classSpaceInvaders_1_1GameObject_abe9cbac0720e8d2346dab2469926c8cd}} 
+\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}!Draw@{Draw}}
+\index{Draw@{Draw}!SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily abstract void Space\+Invaders.\+Game\+Object.\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Instance,  }\item[{Graphics}]{graphics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Dessine l\textquotesingle{}objet de jeu (affiche à l\textquotesingle{}écran) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & l\textquotesingle{}instance du jeu actuel\\
+\hline
+{\em graphics} & l\textquotesingle{}objet graphique où il faut dessiner\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSpaceInvaders_1_1SimpleObject_a0dbbaa689ab50b4c8cacc9864b3cb4cf}{Space\+Invaders.\+Simple\+Object}}, \mbox{\hyperlink{classSpaceInvaders_1_1PlayerSpaceship_aa33ae6d57ff8cc5ce8feee7431c6ed34}{Space\+Invaders.\+Player\+Spaceship}}, and \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_ac80e0f9fd62f367fb34f25d790c68fbb}{Space\+Invaders.\+Enemy\+Block}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1GameObject_a57417ad44e0614ac776a35cdf059e319}\label{classSpaceInvaders_1_1GameObject_a57417ad44e0614ac776a35cdf059e319}} 
+\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}!IsAlive@{IsAlive}}
+\index{IsAlive@{IsAlive}!SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+\doxysubsubsection{\texorpdfstring{IsAlive()}{IsAlive()}}
+{\footnotesize\ttfamily abstract bool Space\+Invaders.\+Game\+Object.\+Is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Détermine si l\textquotesingle{}objet de jeu est vivant. Si cela retourne faux, l\textquotesingle{}objet est automatiquement supprimé. 
+
+\begin{DoxyReturn}{Returns}
+Suis-\/je vivant ?
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSpaceInvaders_1_1SimpleObject_a0f6475f9e3ade02bae3cdd3c636bb811}{Space\+Invaders.\+Simple\+Object}}, and \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a5e44d44d0b494692b4bf37eef144783e}{Space\+Invaders.\+Enemy\+Block}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}\label{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}} 
+\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}!Update@{Update}}
+\index{Update@{Update}!SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily abstract void Space\+Invaders.\+Game\+Object.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Instance,  }\item[{double}]{deltaT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & l\textquotesingle{}instance du jeu actuel\\
+\hline
+{\em deltaT} & temps en secondes depuis le dernier appel de la mise à jour \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}{Update()}}\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}{Space\+Invaders.\+Space\+Ship}}, \mbox{\hyperlink{classSpaceInvaders_1_1PlayerSpaceship_a426d276df5ac31c5ca5bfc66cacf5dd9}{Space\+Invaders.\+Player\+Spaceship}}, \mbox{\hyperlink{classSpaceInvaders_1_1Missile_a7cd5b4b8da6528861fa1b1aecfd63094}{Space\+Invaders.\+Missile}}, \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a8de058eedbda239541d15f799a5cc126}{Space\+Invaders.\+Enemy\+Block}}, and \mbox{\hyperlink{classSpaceInvaders_1_1Bunker_a6c33daab0c40814bc4029dd08d13c6c5}{Space\+Invaders.\+Bunker}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1GameObject_a5b55378ab0daf619d617e6fb6b46a1ea}\label{classSpaceInvaders_1_1GameObject_a5b55378ab0daf619d617e6fb6b46a1ea}} 
+\index{SpaceInvaders.GameObject@{SpaceInvaders.GameObject}!\_side@{\_side}}
+\index{\_side@{\_side}!SpaceInvaders.GameObject@{SpaceInvaders.GameObject}}
+\doxysubsubsection{\texorpdfstring{\_side}{\_side}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} Space\+Invaders.\+Game\+Object.\+\_\+side\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Camp de l\textquotesingle{}objet de jeu 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Object.\+cs\end{DoxyCompactItemize}

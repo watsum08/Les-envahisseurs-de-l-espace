@@ -1,0 +1,239 @@
+\hypertarget{classSpaceInvaders_1_1Game}{}\doxysection{Space\+Invaders.\+Game Class Reference}
+\label{classSpaceInvaders_1_1Game}\index{SpaceInvaders.Game@{SpaceInvaders.Game}}
+
+
+Cette classe représente le jeu entier, elle implémente schéma singleton  
+
+
+
+
+Collaboration diagram for Space\+Invaders.\+Game\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classSpaceInvaders_1_1Game__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSpaceInvaders_1_1Game_a27ba1daeb2339b784edd6231dc8b6fe3}{Add\+New\+Game\+Object}} (\mbox{\hyperlink{classSpaceInvaders_1_1GameObject}{Game\+Object}} game\+Object)
+\begin{DoxyCompactList}\small\item\em Planifie un nouvel objet de jeu à rajouter dans le jeu Le nouvel objet sera ajouté lors du début de la prochaine itération de la boucle \mbox{\hyperlink{classSpaceInvaders_1_1Game_a4dd3e463b2388e1e83bf5c57cf7d43f4}{Update()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpaceInvaders_1_1Game_ae9bc03ada27fd53f596df500dc50d9ce}{Release\+Key}} (Keys key)
+\begin{DoxyCompactList}\small\item\em Force une touche à être ignoré lors des prochains Updates jusqu\textquotesingle{}as l\textquotesingle{}utilisateur le retouche de manière explicite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpaceInvaders_1_1Game_ac7cdd123363f480ea4600d2b4e77de27}{Draw}} (Graphics graphics)
+\begin{DoxyCompactList}\small\item\em Dessine le jeu entier \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpaceInvaders_1_1Game_a4dd3e463b2388e1e83bf5c57cf7d43f4}{Update}} (double deltaT)
+\begin{DoxyCompactList}\small\item\em Mets à jour le jeu \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} \mbox{\hyperlink{classSpaceInvaders_1_1Game_ac1b722f2a424524595cf018154db7f0d}{Create\+Game}} (Size \mbox{\hyperlink{classSpaceInvaders_1_1Game_a5ec26d96b6f2a697dd69f1ec0d2904ae}{game\+Size}})
+\begin{DoxyCompactList}\small\item\em Constructeur Singleton \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Hash\+Set$<$ \mbox{\hyperlink{classSpaceInvaders_1_1GameObject}{Game\+Object}} $>$ \mbox{\hyperlink{classSpaceInvaders_1_1Game_ad2641387895841a20453e264a6f2aef7}{game\+Objects}} = new Hash\+Set$<$\mbox{\hyperlink{classSpaceInvaders_1_1GameObject}{Game\+Object}}$>$()
+\begin{DoxyCompactList}\small\item\em Collection sans indexe de tous les objets de jeu actuellement dans le jeu \end{DoxyCompactList}\item 
+Size \mbox{\hyperlink{classSpaceInvaders_1_1Game_a5ec26d96b6f2a697dd69f1ec0d2904ae}{game\+Size}}
+\begin{DoxyCompactList}\small\item\em La taille du jeu \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceSpaceInvaders_a276cf4deffbba766978b1b463800c0c8}{Game\+State}} \mbox{\hyperlink{classSpaceInvaders_1_1Game_a15cb29dbaf9ef85acc1eae9c60d3253d}{state}} = Game\+State.\+Play
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}état de jeu(pause, en jeu, etc..) \end{DoxyCompactList}\item 
+Hash\+Set$<$ Keys $>$ \mbox{\hyperlink{classSpaceInvaders_1_1Game_adbb6359382f0c9efbb1a6884a14a8db0}{key\+Pressed}} = new Hash\+Set$<$Keys$>$()
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}état du clavier \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSpaceInvaders_1_1PlayerSpaceship}{Player\+Spaceship}} \mbox{\hyperlink{classSpaceInvaders_1_1Game_af876c583a26bc0b45aa9feb62145eebd}{player\+Ship}}
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}instance de vaisseau joueur \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Brush \mbox{\hyperlink{classSpaceInvaders_1_1Game_aa85dcacdef3cbee604c7580cf562ed61}{black\+Brush}} = new Solid\+Brush(Color.\+From\+Argb(250, 240, 240, 240))
+\begin{DoxyCompactList}\small\item\em Pinceau noir partagé \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_af8397067be95314c9014d5e21244323e}\label{classSpaceInvaders_1_1Game_af8397067be95314c9014d5e21244323e}} 
+static Size {\bfseries m\+\_\+\+Sub\+Header\+Text\+Field\+Size} = new Size(300, 100)
+\item 
+static Font \mbox{\hyperlink{classSpaceInvaders_1_1Game_a1c929ba5c68840049ca6daaecc5269d9}{default\+Font}} = new Font(\char`\"{}Ubuntu Mono\char`\"{}, 16)
+\begin{DoxyCompactList}\small\item\em Police simple partagé \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} \mbox{\hyperlink{classSpaceInvaders_1_1Game_a4726de3d44793a483d8a72bab76e6bd0}{game}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Singleton pour accès facile (qu\textquotesingle{}une seule instance de \mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} =$>$ Singleton) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe représente le jeu entier, elle implémente schéma singleton 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_a27ba1daeb2339b784edd6231dc8b6fe3}\label{classSpaceInvaders_1_1Game_a27ba1daeb2339b784edd6231dc8b6fe3}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!AddNewGameObject@{AddNewGameObject}}
+\index{AddNewGameObject@{AddNewGameObject}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{AddNewGameObject()}{AddNewGameObject()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Game.\+Add\+New\+Game\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1GameObject}{Game\+Object}}}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Planifie un nouvel objet de jeu à rajouter dans le jeu Le nouvel objet sera ajouté lors du début de la prochaine itération de la boucle \mbox{\hyperlink{classSpaceInvaders_1_1Game_a4dd3e463b2388e1e83bf5c57cf7d43f4}{Update()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Object} & objet à rajouter\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_ac1b722f2a424524595cf018154db7f0d}\label{classSpaceInvaders_1_1Game_ac1b722f2a424524595cf018154db7f0d}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!CreateGame@{CreateGame}}
+\index{CreateGame@{CreateGame}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{CreateGame()}{CreateGame()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} Space\+Invaders.\+Game.\+Create\+Game (\begin{DoxyParamCaption}\item[{Size}]{game\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Constructeur Singleton 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Size} & Taille de jeu\\
+\hline
+\end{DoxyParams}
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_ac7cdd123363f480ea4600d2b4e77de27}\label{classSpaceInvaders_1_1Game_ac7cdd123363f480ea4600d2b4e77de27}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!Draw@{Draw}}
+\index{Draw@{Draw}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Game.\+Draw (\begin{DoxyParamCaption}\item[{Graphics}]{graphics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dessine le jeu entier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Interface graphique à desinner dessus\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_ae9bc03ada27fd53f596df500dc50d9ce}\label{classSpaceInvaders_1_1Game_ae9bc03ada27fd53f596df500dc50d9ce}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!ReleaseKey@{ReleaseKey}}
+\index{ReleaseKey@{ReleaseKey}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{ReleaseKey()}{ReleaseKey()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Game.\+Release\+Key (\begin{DoxyParamCaption}\item[{Keys}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Force une touche à être ignoré lors des prochains Updates jusqu\textquotesingle{}as l\textquotesingle{}utilisateur le retouche de manière explicite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key to ignore\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_a4dd3e463b2388e1e83bf5c57cf7d43f4}\label{classSpaceInvaders_1_1Game_a4dd3e463b2388e1e83bf5c57cf7d43f4}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!Update@{Update}}
+\index{Update@{Update}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Game.\+Update (\begin{DoxyParamCaption}\item[{double}]{deltaT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mets à jour le jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deltaT} & temps en ms depuis dernier Update\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_aa85dcacdef3cbee604c7580cf562ed61}\label{classSpaceInvaders_1_1Game_aa85dcacdef3cbee604c7580cf562ed61}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!blackBrush@{blackBrush}}
+\index{blackBrush@{blackBrush}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{blackBrush}{blackBrush}}
+{\footnotesize\ttfamily Brush Space\+Invaders.\+Game.\+black\+Brush = new Solid\+Brush(Color.\+From\+Argb(250, 240, 240, 240))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pinceau noir partagé 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_a1c929ba5c68840049ca6daaecc5269d9}\label{classSpaceInvaders_1_1Game_a1c929ba5c68840049ca6daaecc5269d9}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!defaultFont@{defaultFont}}
+\index{defaultFont@{defaultFont}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{defaultFont}{defaultFont}}
+{\footnotesize\ttfamily Font Space\+Invaders.\+Game.\+default\+Font = new Font(\char`\"{}Ubuntu Mono\char`\"{}, 16)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Police simple partagé 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_ad2641387895841a20453e264a6f2aef7}\label{classSpaceInvaders_1_1Game_ad2641387895841a20453e264a6f2aef7}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!gameObjects@{gameObjects}}
+\index{gameObjects@{gameObjects}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{gameObjects}{gameObjects}}
+{\footnotesize\ttfamily Hash\+Set$<$\mbox{\hyperlink{classSpaceInvaders_1_1GameObject}{Game\+Object}}$>$ Space\+Invaders.\+Game.\+game\+Objects = new Hash\+Set$<$\mbox{\hyperlink{classSpaceInvaders_1_1GameObject}{Game\+Object}}$>$()}
+
+
+
+Collection sans indexe de tous les objets de jeu actuellement dans le jeu 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_a5ec26d96b6f2a697dd69f1ec0d2904ae}\label{classSpaceInvaders_1_1Game_a5ec26d96b6f2a697dd69f1ec0d2904ae}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!gameSize@{gameSize}}
+\index{gameSize@{gameSize}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{gameSize}{gameSize}}
+{\footnotesize\ttfamily Size Space\+Invaders.\+Game.\+game\+Size}
+
+
+
+La taille du jeu 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_adbb6359382f0c9efbb1a6884a14a8db0}\label{classSpaceInvaders_1_1Game_adbb6359382f0c9efbb1a6884a14a8db0}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!keyPressed@{keyPressed}}
+\index{keyPressed@{keyPressed}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{keyPressed}{keyPressed}}
+{\footnotesize\ttfamily Hash\+Set$<$Keys$>$ Space\+Invaders.\+Game.\+key\+Pressed = new Hash\+Set$<$Keys$>$()}
+
+
+
+L\textquotesingle{}état du clavier 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_af876c583a26bc0b45aa9feb62145eebd}\label{classSpaceInvaders_1_1Game_af876c583a26bc0b45aa9feb62145eebd}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!playerShip@{playerShip}}
+\index{playerShip@{playerShip}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{playerShip}{playerShip}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSpaceInvaders_1_1PlayerSpaceship}{Player\+Spaceship}} Space\+Invaders.\+Game.\+player\+Ship}
+
+
+
+L\textquotesingle{}instance de vaisseau joueur 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_a15cb29dbaf9ef85acc1eae9c60d3253d}\label{classSpaceInvaders_1_1Game_a15cb29dbaf9ef85acc1eae9c60d3253d}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!state@{state}}
+\index{state@{state}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceSpaceInvaders_a276cf4deffbba766978b1b463800c0c8}{Game\+State}} Space\+Invaders.\+Game.\+state = Game\+State.\+Play}
+
+
+
+L\textquotesingle{}état de jeu(pause, en jeu, etc..) 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Game_a4726de3d44793a483d8a72bab76e6bd0}\label{classSpaceInvaders_1_1Game_a4726de3d44793a483d8a72bab76e6bd0}} 
+\index{SpaceInvaders.Game@{SpaceInvaders.Game}!game@{game}}
+\index{game@{game}!SpaceInvaders.Game@{SpaceInvaders.Game}}
+\doxysubsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} Space\+Invaders.\+Game.\+game\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Singleton pour accès facile (qu\textquotesingle{}une seule instance de \mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} =$>$ Singleton) 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game.\+cs\end{DoxyCompactItemize}

@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 
 namespace SpaceInvaders
 {
     /// <summary>
-    /// This is the generic abstact base class for any entity in the game
+    /// Ceci est la classe abstraite de tout objet de jeu 
     /// </summary>
     abstract class GameObject
     {
+        /// <summary>
+        /// Ceci est l'énumération pour les camp de jeu (Allié, Ennemi, Neutre)
+        /// </summary>
         public enum Side
         {
             Ally,
@@ -18,6 +17,9 @@ namespace SpaceInvaders
             Neutral
         }
 
+        /// <summary>
+        /// Camp de l'objet de jeu
+        /// </summary>
         protected Side _side;
 
         protected GameObject()
@@ -26,25 +28,28 @@ namespace SpaceInvaders
         }
 
         /// <summary>
-        /// Update the state of a game objet
+        /// Met à jour l'état de l'objet de jeu
         /// </summary>
-        /// <param name="gameInstance">instance of the current game</param>
-        /// <param name="deltaT">time ellapsed in seconds since last call to Update</param>
+        /// <param name="gameInstance">l'instance du jeu actuel</param>
+        /// <param name="deltaT">temps en secondes depuis le dernier appel de la mise à jour Update()</param>
         public abstract void Update(Game gameInstance, double deltaT);
 
         /// <summary>
-        /// Render the game object
+        /// Dessine l'objet de jeu (affiche à l'écran)
         /// </summary>
-        /// <param name="gameInstance">instance of the current game</param>
-        /// <param name="graphics">graphic object where to perform rendering</param>
+        /// <param name="gameInstance">l'instance du jeu actuel</param>
+        /// <param name="graphics">l'objet graphique où il faut dessiner</param>
         public abstract void Draw(Game gameInstance, Graphics graphics);
 
         /// <summary>
-        /// Determines if object is alive. If false, the object will be removed automatically.
+        /// Détermine si l'objet de jeu est vivant. Si cela retourne faux, l'objet est automatiquement supprimé.
         /// </summary>
-        /// <returns>Am I alive ?</returns>
+        /// <returns>Suis-je vivant ?</returns>
         public abstract bool IsAlive();
 
+        /// <summary>
+        /// Détermine si l'objet de jeu rentre en collision avec le missile
+        /// </summary>
         public abstract void Collision(Missile m);
     }
 }

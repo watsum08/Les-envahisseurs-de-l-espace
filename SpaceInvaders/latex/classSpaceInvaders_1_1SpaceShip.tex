@@ -1,0 +1,76 @@
+\hypertarget{classSpaceInvaders_1_1SpaceShip}{}\doxysection{Space\+Invaders.\+Space\+Ship Class Reference}
+\label{classSpaceInvaders_1_1SpaceShip}\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
+
+
+Inheritance diagram for Space\+Invaders.\+Space\+Ship\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classSpaceInvaders_1_1SpaceShip__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Space\+Invaders.\+Space\+Ship\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classSpaceInvaders_1_1SpaceShip__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}\label{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}} 
+{\bfseries Space\+Ship} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, Bitmap img, int nb\+Lives, \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} s)
+\item 
+override void \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}{Update}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, double deltaT)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}\label{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}} 
+void {\bfseries Shoot} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Ins)
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}\label{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}} 
+void {\bfseries Kill} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}\label{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}} 
+override void {\bfseries On\+Collision} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m, int number\+Of\+Pixels\+In\+Collision, List$<$ \mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} $>$ colliding\+Pixels\+Points)
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_ae81c5a437f1f24930d2b8e802b115e26}\label{classSpaceInvaders_1_1SpaceShip_ae81c5a437f1f24930d2b8e802b115e26}} 
+double {\bfseries Speed\+Pixel\+Per\+Second}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}\label{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}} 
+\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}!Update@{Update}}
+\index{Update@{Update}!SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Space\+Invaders.\+Space\+Ship.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Instance,  }\item[{double}]{deltaT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & l\textquotesingle{}instance du jeu actuel\\
+\hline
+{\em deltaT} & temps en secondes depuis le dernier appel de la mise à jour \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}{Update()}}\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}{Space\+Invaders.\+Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Space\+Ship.\+cs\end{DoxyCompactItemize}

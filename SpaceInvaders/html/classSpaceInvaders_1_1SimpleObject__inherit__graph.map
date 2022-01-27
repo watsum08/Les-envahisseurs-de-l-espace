@@ -1,0 +1,8 @@
+<map id="SpaceInvaders.SimpleObject" name="SpaceInvaders.SimpleObject">
+<area shape="rect" id="node1" title=" " alt="" coords="166,80,357,107"/>
+<area shape="rect" id="node3" href="$classSpaceInvaders_1_1Bunker.html" title=" " alt="" coords="5,155,160,181"/>
+<area shape="rect" id="node4" href="$classSpaceInvaders_1_1Missile.html" title=" " alt="" coords="184,155,339,181"/>
+<area shape="rect" id="node5" href="$classSpaceInvaders_1_1SpaceShip.html" title=" " alt="" coords="363,155,539,181"/>
+<area shape="rect" id="node2" href="$classSpaceInvaders_1_1GameObject.html" title="Ceci est la classe abstraite de tout objet de jeu" alt="" coords="214,5,309,32"/>
+<area shape="rect" id="node6" href="$classSpaceInvaders_1_1PlayerSpaceship.html" title=" " alt="" coords="345,229,556,256"/>
+</map>

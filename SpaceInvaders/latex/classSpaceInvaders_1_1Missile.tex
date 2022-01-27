@@ -1,0 +1,67 @@
+\hypertarget{classSpaceInvaders_1_1Missile}{}\doxysection{Space\+Invaders.\+Missile Class Reference}
+\label{classSpaceInvaders_1_1Missile}\index{SpaceInvaders.Missile@{SpaceInvaders.Missile}}
+
+
+Inheritance diagram for Space\+Invaders.\+Missile\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classSpaceInvaders_1_1Missile__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Space\+Invaders.\+Missile\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classSpaceInvaders_1_1Missile__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1Missile_aa068c5ccba6795988ac32ed2be6fe2a2}\label{classSpaceInvaders_1_1Missile_aa068c5ccba6795988ac32ed2be6fe2a2}} 
+{\bfseries Missile} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, Bitmap img, int nb\+Lives, \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} s)
+\item 
+override void \mbox{\hyperlink{classSpaceInvaders_1_1Missile_a7cd5b4b8da6528861fa1b1aecfd63094}{Update}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, double deltaT)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1Missile_a8d28bb851e2dff177b075a44ec488551}\label{classSpaceInvaders_1_1Missile_a8d28bb851e2dff177b075a44ec488551}} 
+void {\bfseries Decrement\+Lives} (int n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1Missile_ab515fbfb1813cf37edf3309a7940497d}\label{classSpaceInvaders_1_1Missile_ab515fbfb1813cf37edf3309a7940497d}} 
+override void {\bfseries On\+Collision} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m, int number\+Of\+Pixels\+In\+Collision, List$<$ \mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} $>$ colliding\+Pixels\+Points)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1Missile_a7cd5b4b8da6528861fa1b1aecfd63094}\label{classSpaceInvaders_1_1Missile_a7cd5b4b8da6528861fa1b1aecfd63094}} 
+\index{SpaceInvaders.Missile@{SpaceInvaders.Missile}!Update@{Update}}
+\index{Update@{Update}!SpaceInvaders.Missile@{SpaceInvaders.Missile}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Space\+Invaders.\+Missile.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Instance,  }\item[{double}]{deltaT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & l\textquotesingle{}instance du jeu actuel\\
+\hline
+{\em deltaT} & temps en secondes depuis le dernier appel de la mise à jour \mbox{\hyperlink{classSpaceInvaders_1_1Missile_a7cd5b4b8da6528861fa1b1aecfd63094}{Update()}}\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}{Space\+Invaders.\+Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Missile.\+cs\end{DoxyCompactItemize}

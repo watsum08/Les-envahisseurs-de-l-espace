@@ -15,18 +15,18 @@ namespace SpaceInvaders
 
         #region fields
         /// <summary>
-        /// Instance of the game
+        /// L'instance de jeu
         /// </summary>
         private Game game;
 
         #region time management
         /// <summary>
-        /// Game watch
+        /// Chronomètre de jeu
         /// </summary>
         Stopwatch watch = new Stopwatch();
 
         /// <summary>
-        /// Last update time
+        /// Temps de dernier Update()
         /// </summary>
         long lastTime = 0;
         #endregion
@@ -35,7 +35,7 @@ namespace SpaceInvaders
 
         #region constructor
         /// <summary>
-        /// Create form, create game
+        /// Créer form et créer jeu
         /// </summary>
         public GameForm()
         {
@@ -49,7 +49,7 @@ namespace SpaceInvaders
 
         #region events
         /// <summary>
-        /// Paint event of the form, see msdn for help => paint game with double buffering
+        /// Peindre l'événement de forme
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -67,18 +67,18 @@ namespace SpaceInvaders
         }
 
         /// <summary>
-        /// Tick event => update game
+        /// A chaque "tick" => update jeu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void WorldClock_Tick(object sender, EventArgs e)
         {
-            // lets do 5 ms update to avoid quantum effects
+            // 5ms update pour éviter des effets quantique
             int maxDelta = 5;
 
-            // get time with millisecond precision
+            // prends le temps avec précision au millisecondes
             long nt = watch.ElapsedMilliseconds;
-            // compute ellapsed time since last call to update
+            // calcule le temps passé de la dernière mise à jour
             double deltaT = (nt - lastTime);
 
             for (; deltaT >= maxDelta; deltaT -= maxDelta)
@@ -87,6 +87,7 @@ namespace SpaceInvaders
             game.Update(deltaT / 1000.0);
 
             // remember the time of this update
+            // se rappelle du dernier temps de mise à jour
             lastTime = nt;
 
             Invalidate();
@@ -94,7 +95,7 @@ namespace SpaceInvaders
         }
 
         /// <summary>
-        /// Key down event
+        /// événement Key down
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -104,7 +105,7 @@ namespace SpaceInvaders
         }
 
         /// <summary>
-        /// Key up event
+        /// événement Key up
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -117,7 +118,7 @@ namespace SpaceInvaders
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
     }
 }

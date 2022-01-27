@@ -1,0 +1,141 @@
+\hypertarget{classSpaceInvaders_1_1EnemyBlock}{}\doxysection{Space\+Invaders.\+Enemy\+Block Class Reference}
+\label{classSpaceInvaders_1_1EnemyBlock}\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+
+
+Cette classe représente le bloc d\textquotesingle{}ennemis  
+
+
+
+
+Inheritance diagram for Space\+Invaders.\+Enemy\+Block\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classSpaceInvaders_1_1EnemyBlock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Space\+Invaders.\+Enemy\+Block\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classSpaceInvaders_1_1EnemyBlock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}\label{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}} 
+{\bfseries Enemy\+Block} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, int block\+Width, int direction)
+\item 
+override void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a8de058eedbda239541d15f799a5cc126}{Update}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, double deltaT)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_ac80e0f9fd62f367fb34f25d790c68fbb}{Draw}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, Graphics graphics)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}objet de jeu (affiche à l\textquotesingle{}écran) \end{DoxyCompactList}\item 
+override bool \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a5e44d44d0b494692b4bf37eef144783e}{Is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet de jeu est vivant. Si cela retourne faux, l\textquotesingle{}objet est automatiquement supprimé. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}{Collision}} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m)
+\begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet de jeu rentre en collision avec le missile \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}\label{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}} 
+void {\bfseries Add\+Line} (int nb\+Ships, int nb\+Lives, Bitmap ship\+Image)
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a1666ebffef3169d34f4dbf52507ffa14}\label{classSpaceInvaders_1_1EnemyBlock_a1666ebffef3169d34f4dbf52507ffa14}} 
+void {\bfseries Kill\+All\+Ships} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}\label{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}} 
+Size {\bfseries Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}\label{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}} 
+\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} {\bfseries Position}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe représente le bloc d\textquotesingle{}ennemis 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}\label{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!Collision@{Collision}}
+\index{Collision@{Collision}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{Collision()}{Collision()}}
+{\footnotesize\ttfamily override void Space\+Invaders.\+Enemy\+Block.\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}}}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Détermine si l\textquotesingle{}objet de jeu rentre en collision avec le missile 
+
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a0b7c0c0a2a6c1d425d2bf78619c71dfc}{Space\+Invaders.\+Game\+Object}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_ac80e0f9fd62f367fb34f25d790c68fbb}\label{classSpaceInvaders_1_1EnemyBlock_ac80e0f9fd62f367fb34f25d790c68fbb}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!Draw@{Draw}}
+\index{Draw@{Draw}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void Space\+Invaders.\+Enemy\+Block.\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Instance,  }\item[{Graphics}]{graphics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Dessine l\textquotesingle{}objet de jeu (affiche à l\textquotesingle{}écran) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & l\textquotesingle{}instance du jeu actuel\\
+\hline
+{\em graphics} & l\textquotesingle{}objet graphique où il faut dessiner\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_abe9cbac0720e8d2346dab2469926c8cd}{Space\+Invaders.\+Game\+Object}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a5e44d44d0b494692b4bf37eef144783e}\label{classSpaceInvaders_1_1EnemyBlock_a5e44d44d0b494692b4bf37eef144783e}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!IsAlive@{IsAlive}}
+\index{IsAlive@{IsAlive}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{IsAlive()}{IsAlive()}}
+{\footnotesize\ttfamily override bool Space\+Invaders.\+Enemy\+Block.\+Is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Détermine si l\textquotesingle{}objet de jeu est vivant. Si cela retourne faux, l\textquotesingle{}objet est automatiquement supprimé. 
+
+\begin{DoxyReturn}{Returns}
+Suis-\/je vivant ?
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a57417ad44e0614ac776a35cdf059e319}{Space\+Invaders.\+Game\+Object}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a8de058eedbda239541d15f799a5cc126}\label{classSpaceInvaders_1_1EnemyBlock_a8de058eedbda239541d15f799a5cc126}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!Update@{Update}}
+\index{Update@{Update}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Space\+Invaders.\+Enemy\+Block.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Instance,  }\item[{double}]{deltaT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & l\textquotesingle{}instance du jeu actuel\\
+\hline
+{\em deltaT} & temps en secondes depuis le dernier appel de la mise à jour \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a8de058eedbda239541d15f799a5cc126}{Update()}}\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}{Space\+Invaders.\+Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Enemy\+Block.\+cs\end{DoxyCompactItemize}
