@@ -114,11 +114,15 @@ namespace SpaceInvaders
             game.keyPressed.Remove(e.KeyCode);
         }
 
-        #endregion
-
+        /// <summary>
+        /// Lorsque Form charge
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GameForm_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
+        #endregion
     }
 }

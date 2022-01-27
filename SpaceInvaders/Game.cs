@@ -82,17 +82,17 @@ namespace SpaceInvaders
         /// <summary>
         /// Police simple partagé
         /// </summary>
-        public static Font defaultFont = new Font("Ubuntu Mono", 16);
+        public static Font defaultFont = new Font("Arial", 16);
         #endregion
 
         /// <summary>
         /// Police privé 24px Ubuntu Mono
         /// </summary>
-        private Font font24px = new Font("Ubuntu Mono", 24);
+        private Font _font24px = new Font("Arial", 24);
         /// <summary>
         /// Police privé 32px Ubuntu Mono
         /// </summary>
-        private Font font32px = new Font("Ubuntu Mono", 32);
+        private Font _font32px = new Font("Arial", 32);
 
 
         #region constructors
@@ -100,8 +100,7 @@ namespace SpaceInvaders
         /// Constructeur Singleton
         /// </summary>
         /// <param name="gameSize">Taille de jeu</param>
-        /// 
-        /// <returns></returns>
+        /// <returns>le jeu crée</returns>
         public static Game CreateGame(Size gameSize)
         {
             if (game == null)
@@ -140,6 +139,9 @@ namespace SpaceInvaders
             GameStart();
         }
 
+        /// <summary>
+        /// Débute le jeu
+        /// </summary>
         private void GameStart()
         {
             timer = 0;
@@ -162,8 +164,8 @@ namespace SpaceInvaders
                 _enemies = new EnemyBlock(enemyBlockSpawnPos, enemyBlockWidth, -1); // le bloc d'ennemis va à gauche
             }
             _enemies.AddLine(7, 24, SpaceInvaders.Properties.Resources.ship7); // ajoute la première ligne d'ennemis durs
-            _enemies.AddLine(5, 20, SpaceInvaders.Properties.Resources.ship5); // rajoute une ligne d'ennemis moyens
-            _enemies.AddLine(9, 10, SpaceInvaders.Properties.Resources.ship6); // rajoute une ligne d'ennemis faible
+            _enemies.AddLine(8, 20, SpaceInvaders.Properties.Resources.ship5); // rajoute une ligne d'ennemis moyens
+            _enemies.AddLine(10, 10, SpaceInvaders.Properties.Resources.ship6); // rajoute une ligne d'ennemis faible
             AddNewGameObject(_enemies); // ajoute le bloc d'ennemis aux objets de jeu
 
             List<Bunker> bunkers = new List<Bunker>(); // liste de bunkers
@@ -289,7 +291,7 @@ namespace SpaceInvaders
                 text = state.ToString().ToUpper();
                 graphics.DrawString(
                     text,
-                    font32px,
+                    _font32px,
                     blackBrush,
                     new RectangleF(gameSize.Width / 2 - text.Length * 21 / 2, gameSize.Height / 2 - 50, text.Length * 21, m_SubHeaderTextFieldSize.Height));
             }
@@ -300,7 +302,7 @@ namespace SpaceInvaders
                 text = "VICTOIRE!";
                 graphics.DrawString(
                     text,
-                    font32px,
+                    _font32px,
                     blackBrush,
                     new RectangleF(gameSize.Width / 2 - text.Length * 21 / 2, gameSize.Height / 2 - 150, text.Length * 21, m_SubHeaderTextFieldSize.Height));
                 // après 2 secondes affiche le temps de jeu
@@ -311,7 +313,7 @@ namespace SpaceInvaders
                     text = "Jeu terminé en: " + elapsedTime;
                     graphics.DrawString(
                         text,
-                        font24px,
+                        _font24px,
                         blackBrush,
                         new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 - 80, text.Length * 16, m_SubHeaderTextFieldSize.Height));
 
@@ -340,7 +342,7 @@ namespace SpaceInvaders
                     text = "Appuyez sur ESPACE pour rejouer.";
                     graphics.DrawString(
                         text,
-                        font24px,
+                        _font24px,
                         blackBrush,
                         new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 + 50, text.Length * 16, m_SubHeaderTextFieldSize.Height));
                     _gameOver = true;
@@ -353,7 +355,7 @@ namespace SpaceInvaders
                 text = "DÉFAITE..";
                 graphics.DrawString(
                     text,
-                    font32px,
+                    _font32px,
                     blackBrush,
                     new RectangleF(gameSize.Width / 2 - text.Length * 21 / 2, gameSize.Height / 2 - 150, text.Length * 21, m_SubHeaderTextFieldSize.Height));
 
@@ -362,7 +364,7 @@ namespace SpaceInvaders
                     text = "Appuyez sur ESPACE pour rejouer.";
                     graphics.DrawString(
                         text,
-                        font24px,
+                        _font24px,
                         blackBrush,
                         new RectangleF(gameSize.Width / 2 - text.Length * 16 / 2, gameSize.Height / 2 - 60, text.Length * 16, m_SubHeaderTextFieldSize.Height));
                     _gameOver = true;

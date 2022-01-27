@@ -22,6 +22,9 @@ namespace SpaceInvaders
         /// </summary>
         protected Side _side;
 
+        /// <summary>
+        /// Constructeur protégé de la classe <see cref="T:SpaceInvaders.GameObject"/>.
+        /// </summary>
         protected GameObject()
         {
 

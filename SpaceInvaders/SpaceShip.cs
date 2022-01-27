@@ -4,18 +4,24 @@ using System.Collections.Generic;
 
 namespace SpaceInvaders
 {
+    /// <summary>
+    /// Classe de SpaceShip
+    /// hérité de SimpleObject
+    /// </summary>
     class SpaceShip : SimpleObject
     {
+        /// <summary>
+        /// Le missile
+        /// </summary>
         private Missile _missile;
 
-        private double _speedPixelPerSecond = 50;
-
-        public double SpeedPixelPerSecond
-        {
-            get { return _speedPixelPerSecond; }
-            set { _speedPixelPerSecond = value; }
-        }
-
+        /// <summary>
+        /// Constructeur public de la classe <see cref="T:SpaceInvaders.SpaceShip"/>.
+        /// </summary>
+        /// <param name="spawnPos">position d'apparution</param>
+        /// <param name="img">image</param>
+        /// <param name="nbLives">nombre de vies</param>
+        /// <param name="s">camp</param>
         public SpaceShip(Vector2 spawnPos, Bitmap img, int nbLives, Side s) : base(spawnPos, img, nbLives, s)
         {
 
@@ -26,6 +32,10 @@ namespace SpaceInvaders
 
         }
 
+        /// <summary>
+        /// Tir un missile dans l'instance de jeu.
+        /// </summary>
+        /// <param name="gameIns">instance de jeu</param>
         public void Shoot(Game gameIns)
         {
             if (_missile == null || !_missile.IsAlive())
@@ -51,6 +61,9 @@ namespace SpaceInvaders
             }
         }
 
+        /// <summary>
+        /// Tue cet instance.
+        /// </summary>
         public void Kill()
         {
             _nbLives = 0;

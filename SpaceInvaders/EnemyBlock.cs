@@ -12,30 +12,66 @@ namespace SpaceInvaders
     class EnemyBlock : GameObject
     {
         /// <summary>
-        /// Cette classe représente le jeu entier, 
+        /// Liste des vaisseaux ennemis contenu
         /// </summary>
         private HashSet<SpaceShip> _enemyShips;
+        /// <summary>
+        /// Largeur de base du bloc
+        /// </summary>
         private int _baseWidth;
+        /// <summary>
+        /// Marge du bas des vaisseaux
+        /// </summary>
         private int _bottomShipMargin;
+        /// <summary>
+        /// Taille du bloc
+        /// </summary>
         private Size _size;
+        /// <summary>
+        /// Position du bloc
+        /// </summary>
         private Vector2 _position;
+        /// <summary>
+        /// Direction du bloc
+        /// </summary>
         private int _direction;
+        /// <summary>
+        /// Vitesse horizontale du bloc
+        /// </summary>
         private double _horSpeed;
+        /// <summary>
+        /// Vitesse verticale du bloc
+        /// </summary>
         private double _verSpeed;
+        /// <summary>
+        /// Taux de probabilité de tir
+        /// </summary>
         private double _randomShootProbability;
 
+        /// <summary>
+        /// Getter et Setter de la taille du bloc
+        /// </summary>
         public Size Size
         {
             get { return _size; }
             set { _size = value; }
         }
 
+        /// <summary>
+        /// Getter et Setter de la position du bloc
+        /// </summary>
         public Vector2 Position
         {
             get { return _position; }
             set { _position = value; }
         }
 
+        /// <summary>
+        /// Constructeur publique
+        /// </summary>
+        /// <param name="spawnPos">position d'instanciation</param>
+        /// <param name="blockWidth">largeur de base du bloc</param>
+        /// <param name="direction">direction de base du bloc</param>
         public EnemyBlock(Vector2 spawnPos, int blockWidth, int direction)
         {
             _position = new Vector2(spawnPos.X, spawnPos.Y);
@@ -58,49 +94,53 @@ namespace SpaceInvaders
             {
                 if (_position.X + _size.Width >= gameInstance.gameSize.Width)
                 {
-                    _direction = -1; // goes Left
+                    _direction = -1; // va à Gauche
 
                     _position.Y += _verSpeed * deltaT;
                     _horSpeed += 2;
                     foreach (SpaceShip spaceship in _enemyShips)
                     {
                       spaceship.Position.Y += _verSpeed * deltaT;
-                      _randomShootProbability += 0.008f;
+                      _randomShootProbability += 0.005f;
                     }
 
                 }
                 else if (_position.X <= 0)
                 {
-                    _direction = 1; // goes Right
+                    _direction = 1; // va à Droite
 
                     _position.Y += _verSpeed * deltaT;
                     _horSpeed += 2;
                     foreach (SpaceShip spaceship in _enemyShips)
                     {
                        spaceship.Position.Y += _verSpeed * deltaT;
-                        _randomShootProbability += 0.008f;
+                        _randomShootProbability += 0.005f;
                     }
                 }
 
-
+                // pour chaque spaceship dans les vaisseaux ennemis on crée un chiffre aléatoire 
                 foreach (SpaceShip spaceship in _enemyShips.ToList())
                 {
                     spaceship.Position.X += _horSpeed * deltaT * _direction;
 
+                    // crée un chiffre(seed) aléatoire
                     Random randSeed = new Random();
+                    // prend le prochain double du seed randSeed
                     double r = randSeed.NextDouble();
 
+                    // tir aléatoire
+                    if (r <= _randomShootProbability * deltaT) // tir aléatoire
+                    {
+                        spaceship.Shoot(gameInstance);
+                    }
+
+                    // enlève le vaisseau de la liste si il est mort
                     if (!spaceship.IsAlive())
                     {
                         _enemyShips.Remove(spaceship);
                     }
-                    else if (r <= _randomShootProbability * deltaT) //random shoot
-                    {
-                        spaceship.Shoot(gameInstance);
-                    }
                 }
                 _position.X += _horSpeed * deltaT * _direction;
-                _enemyShips.TrimExcess();
 
                 if (_position.Y + _size.Height >= gameInstance.playerShip.Position.Y)
                 {
@@ -148,6 +188,12 @@ namespace SpaceInvaders
             }
         }
 
+        /// <summary>
+        /// Ajoute une ligne d'ennemis.
+        /// </summary>
+        /// <param name="nbShips">nombre de vaisseaux</param>
+        /// <param name="nbLives">nombre de vies</param>
+        /// <param name="shipImage">image du vaisseau</param>
         public void AddLine(int nbShips, int nbLives, Bitmap shipImage)
         {
             for (int ship = 0; ship < nbShips; ship++)
@@ -158,6 +204,9 @@ namespace SpaceInvaders
             _size.Height += shipImage.Height + _bottomShipMargin;
         }
 
+        /// <summary>
+        /// Mets à jour la taille du bloc.
+        /// </summary>
         private void UpdateSize()
         {
             double minX = 1000;
@@ -186,13 +235,13 @@ namespace SpaceInvaders
                 _position.X = _enemyShips.First().Position.X;
             }
         }
-
+        /* // Permet de tuer tous les ennemis de _enemyShips
         public void KillAllShips()
         {
             foreach (SpaceShip enemyShip in _enemyShips)
             {
                 enemyShip.Kill();
             }
-        }
+        }*/
     }
 }
