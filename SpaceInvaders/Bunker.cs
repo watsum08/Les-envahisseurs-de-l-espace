@@ -1,6 +1,9 @@
-﻿using System;
+﻿// Auteur : Marc Meynet
+// Classe : CFC-24
+// Date de création : 09.12.21
+// Classe Bunker
+using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Collections.Generic;
 
 namespace SpaceInvaders

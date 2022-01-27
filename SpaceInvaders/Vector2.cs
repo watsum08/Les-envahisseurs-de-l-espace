@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Auteur : Marc Meynet
+// Classe : CFC-24
+// Date de création : 09.12.21
+// Classe Vector2
+using System;
 namespace SpaceInvaders
 {
     /// <summary>

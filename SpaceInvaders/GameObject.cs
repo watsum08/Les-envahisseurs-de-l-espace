@@ -1,4 +1,8 @@
-﻿using System.Drawing;
+﻿// Auteur : Marc Meynet
+// Classe : CFC-24
+// Date de création : 09.12.21
+// Classe GameObject
+using System.Drawing;
 
 namespace SpaceInvaders
 {

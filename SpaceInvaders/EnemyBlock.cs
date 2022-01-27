@@ -1,8 +1,11 @@
-﻿using System;
+﻿// Auteur : Marc Meynet
+// Classe : CFC-24
+// Date de création : 09.12.21
+// Classe EnemyBlock
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Threading;
 
 namespace SpaceInvaders
 {

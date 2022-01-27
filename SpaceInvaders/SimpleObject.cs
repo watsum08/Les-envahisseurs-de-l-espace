@@ -1,7 +1,10 @@
-﻿using System;
+﻿// Auteur : Marc Meynet
+// Classe : CFC-24
+// Date de création : 09.12.21
+// Classe SimpleObject
+using System;
 using System.Drawing;
 using System.Collections.Generic;
-using System.Windows;
 
 namespace SpaceInvaders
 {
