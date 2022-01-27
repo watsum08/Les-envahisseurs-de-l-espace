@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['side_23',['Side',['../classSpaceInvaders_1_1GameObject.html#a01b674567128ac47465e33467a47a0e8',1,'SpaceInvaders::GameObject']]],
-  ['simpleobject_24',['SimpleObject',['../classSpaceInvaders_1_1SimpleObject.html',1,'SpaceInvaders']]],
-  ['spaceinvaders_25',['SpaceInvaders',['../namespaceSpaceInvaders.html',1,'']]],
-  ['spaceship_26',['SpaceShip',['../classSpaceInvaders_1_1SpaceShip.html',1,'SpaceInvaders']]],
-  ['state_27',['state',['../classSpaceInvaders_1_1Game.html#a15cb29dbaf9ef85acc1eae9c60d3253d',1,'SpaceInvaders::Game']]]
+  ['playership_30',['playerShip',['../classSpaceInvaders_1_1Game.html#af876c583a26bc0b45aa9feb62145eebd',1,'SpaceInvaders::Game']]],
+  ['playerspaceship_31',['PlayerSpaceship',['../classSpaceInvaders_1_1PlayerSpaceship.html#aa32b4227f545ef9a6d7deb9636cf387c',1,'SpaceInvaders.PlayerSpaceship.PlayerSpaceship()'],['../classSpaceInvaders_1_1PlayerSpaceship.html',1,'SpaceInvaders.PlayerSpaceship']]],
+  ['position_32',['Position',['../classSpaceInvaders_1_1EnemyBlock.html#ac7ce0fa34816336cb7d37b830637a305',1,'SpaceInvaders.EnemyBlock.Position()'],['../classSpaceInvaders_1_1SimpleObject.html#ac432d7ab1fbe956ea6e67ce30918ddf5',1,'SpaceInvaders.SimpleObject.Position()']]]
 ];

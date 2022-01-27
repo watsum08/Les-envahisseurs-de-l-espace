@@ -1,8 +1,8 @@
 <map id="SpaceInvaders.Game" name="SpaceInvaders.Game">
 <area shape="rect" id="node1" title="Cette classe représente le jeu entier, elle implémente schéma singleton" alt="" coords="53,336,201,363"/>
-<area shape="rect" id="node2" href="$classSpaceInvaders_1_1PlayerSpaceship.html" title=" " alt="" coords="22,247,233,273"/>
-<area shape="rect" id="node3" href="$classSpaceInvaders_1_1SpaceShip.html" title=" " alt="" coords="85,171,170,197"/>
-<area shape="rect" id="node4" href="$classSpaceInvaders_1_1SimpleObject.html" title=" " alt="" coords="77,95,177,121"/>
+<area shape="rect" id="node2" href="$classSpaceInvaders_1_1PlayerSpaceship.html" title="Classe permettant d&#39;instancier le vaisseau joueur hérité de SpaceShip" alt="" coords="22,247,233,273"/>
+<area shape="rect" id="node3" href="$classSpaceInvaders_1_1SpaceShip.html" title="Classe de SpaceShip hérité de SimpleObject" alt="" coords="85,171,170,197"/>
+<area shape="rect" id="node4" href="$classSpaceInvaders_1_1SimpleObject.html" title="Classe abstraite de SimpleObject hérité de GameObject" alt="" coords="77,95,177,121"/>
 <area shape="rect" id="node5" href="$classSpaceInvaders_1_1GameObject.html" title="Ceci est la classe abstraite de tout objet de jeu" alt="" coords="5,5,100,32"/>
-<area shape="rect" id="node6" href="$classSpaceInvaders_1_1Vector2.html" title=" " alt="" coords="124,5,283,32"/>
+<area shape="rect" id="node6" href="$classSpaceInvaders_1_1Vector2.html" title="Classe permettant de créer des vecteurs pour la position, etc.." alt="" coords="124,5,283,32"/>
 </map>

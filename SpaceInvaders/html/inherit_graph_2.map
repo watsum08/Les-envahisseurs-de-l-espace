@@ -1,9 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classSpaceInvaders_1_1GameObject.html" title="Ceci est la classe abstraite de tout objet de jeu" alt="" coords="5,31,192,57"/>
 <area shape="rect" id="node2" href="$classSpaceInvaders_1_1EnemyBlock.html" title="Cette classe représente le bloc d&#39;ennemis" alt="" coords="242,5,429,32"/>
-<area shape="rect" id="node3" href="$classSpaceInvaders_1_1SimpleObject.html" title=" " alt="" coords="240,56,431,83"/>
-<area shape="rect" id="node4" href="$classSpaceInvaders_1_1Bunker.html" title=" " alt="" coords="489,5,644,32"/>
-<area shape="rect" id="node5" href="$classSpaceInvaders_1_1Missile.html" title=" " alt="" coords="489,56,644,83"/>
-<area shape="rect" id="node6" href="$classSpaceInvaders_1_1SpaceShip.html" title=" " alt="" coords="479,107,655,133"/>
-<area shape="rect" id="node7" href="$classSpaceInvaders_1_1PlayerSpaceship.html" title=" " alt="" coords="703,107,913,133"/>
+<area shape="rect" id="node3" href="$classSpaceInvaders_1_1SimpleObject.html" title="Classe abstraite de SimpleObject hérité de GameObject" alt="" coords="240,56,431,83"/>
+<area shape="rect" id="node4" href="$classSpaceInvaders_1_1Bunker.html" title="Classe bunker pour se mettre à l&#39;abri hérité de SimpleObject" alt="" coords="489,5,644,32"/>
+<area shape="rect" id="node5" href="$classSpaceInvaders_1_1Missile.html" title="Classe permettant d&#39;instancier un missile hérité de SimpleObject" alt="" coords="489,56,644,83"/>
+<area shape="rect" id="node6" href="$classSpaceInvaders_1_1SpaceShip.html" title="Classe de SpaceShip hérité de SimpleObject" alt="" coords="479,107,655,133"/>
+<area shape="rect" id="node7" href="$classSpaceInvaders_1_1PlayerSpaceship.html" title="Classe permettant d&#39;instancier le vaisseau joueur hérité de SpaceShip" alt="" coords="703,107,913,133"/>
 </map>

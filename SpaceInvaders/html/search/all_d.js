@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_28',['Update',['../classSpaceInvaders_1_1Bunker.html#a6c33daab0c40814bc4029dd08d13c6c5',1,'SpaceInvaders.Bunker.Update()'],['../classSpaceInvaders_1_1EnemyBlock.html#a8de058eedbda239541d15f799a5cc126',1,'SpaceInvaders.EnemyBlock.Update()'],['../classSpaceInvaders_1_1Game.html#a4dd3e463b2388e1e83bf5c57cf7d43f4',1,'SpaceInvaders.Game.Update()'],['../classSpaceInvaders_1_1GameObject.html#afbb9a5462c754d073b7f82fbb1e4c5ad',1,'SpaceInvaders.GameObject.Update()'],['../classSpaceInvaders_1_1Missile.html#a7cd5b4b8da6528861fa1b1aecfd63094',1,'SpaceInvaders.Missile.Update()'],['../classSpaceInvaders_1_1PlayerSpaceship.html#a426d276df5ac31c5ca5bfc66cacf5dd9',1,'SpaceInvaders.PlayerSpaceship.Update()'],['../classSpaceInvaders_1_1SpaceShip.html#a93cc91f82e5dc9686e30336dbf90d83b',1,'SpaceInvaders.SpaceShip.Update()']]]
+  ['releasekey_33',['ReleaseKey',['../classSpaceInvaders_1_1Game.html#ae9bc03ada27fd53f596df500dc50d9ce',1,'SpaceInvaders::Game']]]
 ];

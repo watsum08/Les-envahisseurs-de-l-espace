@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/x-icon" href="../Resources/ship3.ico">
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -70,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classSpaceInvaders_1_1GameObject-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -86,11 +88,11 @@ Inheritance diagram for SpaceInvaders.GameObject:</div>
 <map name="aSpaceInvaders_8GameObject_inherit__map" id="aSpaceInvaders_8GameObject_inherit__map">
 <area shape="rect" title="Ceci est la classe abstraite de tout objet de jeu" alt="" coords="112,5,299,32"/>
 <area shape="rect" href="classSpaceInvaders_1_1EnemyBlock.html" title="Cette classe représente le bloc d&#39;ennemis" alt="" coords="5,80,192,107"/>
-<area shape="rect" href="classSpaceInvaders_1_1SimpleObject.html" title=" " alt="" coords="217,80,407,107"/>
-<area shape="rect" href="classSpaceInvaders_1_1Bunker.html" title=" " alt="" coords="56,155,211,181"/>
-<area shape="rect" href="classSpaceInvaders_1_1Missile.html" title=" " alt="" coords="235,155,389,181"/>
-<area shape="rect" href="classSpaceInvaders_1_1SpaceShip.html" title=" " alt="" coords="413,155,589,181"/>
-<area shape="rect" href="classSpaceInvaders_1_1PlayerSpaceship.html" title=" " alt="" coords="396,229,607,256"/>
+<area shape="rect" href="classSpaceInvaders_1_1SimpleObject.html" title="Classe abstraite de SimpleObject hérité de GameObject" alt="" coords="217,80,407,107"/>
+<area shape="rect" href="classSpaceInvaders_1_1Bunker.html" title="Classe bunker pour se mettre à l&#39;abri hérité de SimpleObject" alt="" coords="56,155,211,181"/>
+<area shape="rect" href="classSpaceInvaders_1_1Missile.html" title="Classe permettant d&#39;instancier un missile hérité de SimpleObject" alt="" coords="235,155,389,181"/>
+<area shape="rect" href="classSpaceInvaders_1_1SpaceShip.html" title="Classe de SpaceShip hérité de SimpleObject" alt="" coords="413,155,589,181"/>
+<area shape="rect" href="classSpaceInvaders_1_1PlayerSpaceship.html" title="Classe permettant d&#39;instancier le vaisseau joueur hérité de SpaceShip" alt="" coords="396,229,607,256"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -117,6 +119,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b7c0c0a2a6c1d425d2bf78619c71dfc"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpaceInvaders_1_1GameObject.html#a0b7c0c0a2a6c1d425d2bf78619c71dfc">Collision</a> (<a class="el" href="classSpaceInvaders_1_1Missile.html">Missile</a> m)</td></tr>
 <tr class="memdesc:a0b7c0c0a2a6c1d425d2bf78619c71dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si l'objet de jeu rentre en collision avec le missile  <a href="classSpaceInvaders_1_1GameObject.html#a0b7c0c0a2a6c1d425d2bf78619c71dfc">More...</a><br /></td></tr>
 <tr class="separator:a0b7c0c0a2a6c1d425d2bf78619c71dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae3eca70e3a2cccd5f56c30214c7b8a93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpaceInvaders_1_1GameObject.html#ae3eca70e3a2cccd5f56c30214c7b8a93">GameObject</a> ()</td></tr>
+<tr class="memdesc:ae3eca70e3a2cccd5f56c30214c7b8a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur protégé de la classe T:SpaceInvaders.GameObject.  <a href="classSpaceInvaders_1_1GameObject.html#ae3eca70e3a2cccd5f56c30214c7b8a93">More...</a><br /></td></tr>
+<tr class="separator:ae3eca70e3a2cccd5f56c30214c7b8a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -148,6 +156,34 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Ceci est l'énumération pour les camp de jeu (Allié, Ennemi, Neutre) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae3eca70e3a2cccd5f56c30214c7b8a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3eca70e3a2cccd5f56c30214c7b8a93">&#9670;&nbsp;</a></span>GameObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SpaceInvaders.GameObject.GameObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur protégé de la classe T:SpaceInvaders.GameObject. </p>
 
 </div>
 </div>

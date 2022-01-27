@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['playership_20',['playerShip',['../classSpaceInvaders_1_1Game.html#af876c583a26bc0b45aa9feb62145eebd',1,'SpaceInvaders::Game']]],
-  ['playerspaceship_21',['PlayerSpaceship',['../classSpaceInvaders_1_1PlayerSpaceship.html',1,'SpaceInvaders']]]
+  ['nblives_27',['NbLives',['../classSpaceInvaders_1_1SimpleObject.html#a626ab6a0547c193575d5fd2b38a90c4c',1,'SpaceInvaders::SimpleObject']]],
+  ['norme_28',['Norme',['../classSpaceInvaders_1_1Vector2.html#acb705e0c34e1facca1d8dd000eedac3c',1,'SpaceInvaders::Vector2']]]
 ];

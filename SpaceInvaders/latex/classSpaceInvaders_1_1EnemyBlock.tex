@@ -26,9 +26,8 @@ Collaboration diagram for Space\+Invaders.\+Enemy\+Block\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}\label{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}} 
-{\bfseries Enemy\+Block} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, int block\+Width, int direction)
-\item 
+\mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}{Enemy\+Block}} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, int block\+Width, int direction)
+\begin{DoxyCompactList}\small\item\em Constructeur publique \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a8de058eedbda239541d15f799a5cc126}{Update}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, double deltaT)
 \begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_ac80e0f9fd62f367fb34f25d790c68fbb}{Draw}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, Graphics graphics)
@@ -37,21 +36,15 @@ override bool \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a5e44d44d0b49469
 \begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet de jeu est vivant. Si cela retourne faux, l\textquotesingle{}objet est automatiquement supprimé. \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}{Collision}} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m)
 \begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet de jeu rentre en collision avec le missile \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}\label{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}} 
-void {\bfseries Add\+Line} (int nb\+Ships, int nb\+Lives, Bitmap ship\+Image)
-\item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a1666ebffef3169d34f4dbf52507ffa14}\label{classSpaceInvaders_1_1EnemyBlock_a1666ebffef3169d34f4dbf52507ffa14}} 
-void {\bfseries Kill\+All\+Ships} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}{Add\+Line}} (int nb\+Ships, int nb\+Lives, Bitmap ship\+Image)
+\begin{DoxyCompactList}\small\item\em Ajoute une ligne d\textquotesingle{}ennemis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}\label{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}} 
-Size {\bfseries Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}\label{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}} 
-\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} {\bfseries Position}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\end{DoxyCompactItemize}
+Size \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}{Size}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Getter et Setter de la taille du bloc \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} \mbox{\hyperlink{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}{Position}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Getter et Setter de la position du bloc \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -60,7 +53,48 @@ Cette classe représente le bloc d\textquotesingle{}ennemis
 
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}\label{classSpaceInvaders_1_1EnemyBlock_a1a9c6200019d8168009132a0b34a2888}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!EnemyBlock@{EnemyBlock}}
+\index{EnemyBlock@{EnemyBlock}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{EnemyBlock()}{EnemyBlock()}}
+{\footnotesize\ttfamily Space\+Invaders.\+Enemy\+Block.\+Enemy\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}}}]{spawn\+Pos,  }\item[{int}]{block\+Width,  }\item[{int}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur publique 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spawn\+Pos} & position d\textquotesingle{}instanciation\\
+\hline
+{\em block\+Width} & largeur de base du bloc\\
+\hline
+{\em direction} & direction de base du bloc\\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}\label{classSpaceInvaders_1_1EnemyBlock_a119966e32751c2c1be711baffc6a88c4}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!AddLine@{AddLine}}
+\index{AddLine@{AddLine}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{AddLine()}{AddLine()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Enemy\+Block.\+Add\+Line (\begin{DoxyParamCaption}\item[{int}]{nb\+Ships,  }\item[{int}]{nb\+Lives,  }\item[{Bitmap}]{ship\+Image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ajoute une ligne d\textquotesingle{}ennemis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Ships} & nombre de vaisseaux\\
+\hline
+{\em nb\+Lives} & nombre de vies\\
+\hline
+{\em ship\+Image} & image du vaisseau\\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}\label{classSpaceInvaders_1_1EnemyBlock_a4c3364050bf9debffcbd68e96258990b}} 
 \index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!Collision@{Collision}}
 \index{Collision@{Collision}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
@@ -133,6 +167,29 @@ Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu
 
 
 Implements \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_afbb9a5462c754d073b7f82fbb1e4c5ad}{Space\+Invaders.\+Game\+Object}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}\label{classSpaceInvaders_1_1EnemyBlock_ac7ce0fa34816336cb7d37b830637a305}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!Position@{Position}}
+\index{Position@{Position}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{Position}{Position}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} Space\+Invaders.\+Enemy\+Block.\+Position\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Getter et Setter de la position du bloc 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}\label{classSpaceInvaders_1_1EnemyBlock_a45934fa2b83a88e79d1ef3abccd1072a}} 
+\index{SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}!Size@{Size}}
+\index{Size@{Size}!SpaceInvaders.EnemyBlock@{SpaceInvaders.EnemyBlock}}
+\doxysubsubsection{\texorpdfstring{Size}{Size}}
+{\footnotesize\ttfamily Size Space\+Invaders.\+Enemy\+Block.\+Size\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Getter et Setter de la taille du bloc 
 
 
 

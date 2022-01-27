@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['isalive_47',['IsAlive',['../classSpaceInvaders_1_1EnemyBlock.html#a5e44d44d0b494692b4bf37eef144783e',1,'SpaceInvaders.EnemyBlock.IsAlive()'],['../classSpaceInvaders_1_1GameObject.html#a57417ad44e0614ac776a35cdf059e319',1,'SpaceInvaders.GameObject.IsAlive()'],['../classSpaceInvaders_1_1SimpleObject.html#a0f6475f9e3ade02bae3cdd3c636bb811',1,'SpaceInvaders.SimpleObject.IsAlive()']]]
+  ['gameform_64',['GameForm',['../classSpaceInvaders_1_1GameForm.html#a5910f4873101ffc42488623c99851bee',1,'SpaceInvaders::GameForm']]],
+  ['gameobject_65',['GameObject',['../classSpaceInvaders_1_1GameObject.html#ae3eca70e3a2cccd5f56c30214c7b8a93',1,'SpaceInvaders::GameObject']]]
 ];

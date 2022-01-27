@@ -2,7 +2,13 @@
 \label{classSpaceInvaders_1_1SpaceShip}\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
 
 
-Inheritance diagram for Space\+Invaders.\+Space\+Ship\+:\nopagebreak
+Classe de \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip}{Space\+Ship}} hérité de \mbox{\hyperlink{classSpaceInvaders_1_1SimpleObject}{Simple\+Object}}  
+
+
+
+
+Inheritance diagram for Space\+Invaders.\+Space\+Ship\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +17,8 @@ Inheritance diagram for Space\+Invaders.\+Space\+Ship\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Space\+Invaders.\+Space\+Ship\+:\nopagebreak
+Collaboration diagram for Space\+Invaders.\+Space\+Ship\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,33 +28,100 @@ Collaboration diagram for Space\+Invaders.\+Space\+Ship\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}\label{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}} 
-{\bfseries Space\+Ship} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, Bitmap img, int nb\+Lives, \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} s)
-\item 
+\mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}{Space\+Ship}} (\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} spawn\+Pos, Bitmap img, int nb\+Lives, \mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}} s)
+\begin{DoxyCompactList}\small\item\em Constructeur public de la classe T\+:\+Space\+Invaders.\+Space\+Ship. \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}{Update}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Instance, double deltaT)
 \begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état de l\textquotesingle{}objet de jeu \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}\label{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}} 
-void {\bfseries Shoot} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Ins)
-\item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}\label{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}} 
-void {\bfseries Kill} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}{Shoot}} (\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}} game\+Ins)
+\begin{DoxyCompactList}\small\item\em Tir un missile dans l\textquotesingle{}instance de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}{Kill}} ()
+\begin{DoxyCompactList}\small\item\em Tue cet instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}\label{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}} 
-override void {\bfseries On\+Collision} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m, int number\+Of\+Pixels\+In\+Collision, List$<$ \mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} $>$ colliding\+Pixels\+Points)
-\end{DoxyCompactItemize}
-\doxysubsection*{Properties}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_ae81c5a437f1f24930d2b8e802b115e26}\label{classSpaceInvaders_1_1SpaceShip_ae81c5a437f1f24930d2b8e802b115e26}} 
-double {\bfseries Speed\+Pixel\+Per\+Second}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\end{DoxyCompactItemize}
+override void \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}{On\+Collision}} (\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}} m, int number\+Of\+Pixels\+In\+Collision, List$<$ \mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} $>$ colliding\+Pixels\+Points)
+\begin{DoxyCompactList}\small\item\em Appelé en cas de collision \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+Classe de \mbox{\hyperlink{classSpaceInvaders_1_1SpaceShip}{Space\+Ship}} hérité de \mbox{\hyperlink{classSpaceInvaders_1_1SimpleObject}{Simple\+Object}} 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}\label{classSpaceInvaders_1_1SpaceShip_a48d6f200fe46b6e2f6456b7424e0d8af}} 
+\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}!SpaceShip@{SpaceShip}}
+\index{SpaceShip@{SpaceShip}!SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
+\doxysubsubsection{\texorpdfstring{SpaceShip()}{SpaceShip()}}
+{\footnotesize\ttfamily Space\+Invaders.\+Space\+Ship.\+Space\+Ship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}}}]{spawn\+Pos,  }\item[{Bitmap}]{img,  }\item[{int}]{nb\+Lives,  }\item[{\mbox{\hyperlink{classSpaceInvaders_1_1GameObject_a01b674567128ac47465e33467a47a0e8}{Side}}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur public de la classe T\+:\+Space\+Invaders.\+Space\+Ship. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spawn\+Pos} & position d\textquotesingle{}apparution\\
+\hline
+{\em img} & image\\
+\hline
+{\em nb\+Lives} & nombre de vies\\
+\hline
+{\em s} & camp\\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}\label{classSpaceInvaders_1_1SpaceShip_a9781fe98358115ffae88dd84c92ee8c3}} 
+\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}!Kill@{Kill}}
+\index{Kill@{Kill}!SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
+\doxysubsubsection{\texorpdfstring{Kill()}{Kill()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Space\+Ship.\+Kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tue cet instance. 
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}\label{classSpaceInvaders_1_1SpaceShip_afc56e831a6d06032cb2a628c72cb5844}} 
+\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}!OnCollision@{OnCollision}}
+\index{OnCollision@{OnCollision}!SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
+\doxysubsubsection{\texorpdfstring{OnCollision()}{OnCollision()}}
+{\footnotesize\ttfamily override void Space\+Invaders.\+Space\+Ship.\+On\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Missile}{Missile}}}]{m,  }\item[{int}]{number\+Of\+Pixels\+In\+Collision,  }\item[{List$<$ \mbox{\hyperlink{classSpaceInvaders_1_1Vector2}{Vector2}} $>$}]{colliding\+Pixels\+Points }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Appelé en cas de collision 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & missile\\
+\hline
+{\em number\+Of\+Pixels\+In\+Collision} & nombre de pixels entré en collision\\
+\hline
+{\em colliding\+Pixels\+Points} & les pixels entrés en collision\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSpaceInvaders_1_1SimpleObject_a6cffc97714e6e639a4a3f0b35f41d0cf}{Space\+Invaders.\+Simple\+Object}}.
+
+\mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}\label{classSpaceInvaders_1_1SpaceShip_a0873e2cb8772153ad9dc45b32f4e2bd4}} 
+\index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
+\doxysubsubsection{\texorpdfstring{Shoot()}{Shoot()}}
+{\footnotesize\ttfamily void Space\+Invaders.\+Space\+Ship.\+Shoot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpaceInvaders_1_1Game}{Game}}}]{game\+Ins }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tir un missile dans l\textquotesingle{}instance de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Ins} & instance de jeu\\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}\label{classSpaceInvaders_1_1SpaceShip_a93cc91f82e5dc9686e30336dbf90d83b}} 
 \index{SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}!Update@{Update}}
 \index{Update@{Update}!SpaceInvaders.SpaceShip@{SpaceInvaders.SpaceShip}}
